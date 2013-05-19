@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="@string/TimePickerHeader" android:key="appPreferences">
+    <PreferenceCategory android:title="@string/preferenceUserTitle">
+        <EditTextPreference android:title="@string/UserID" android:key="preferenceUserID" android:dialogTitle="@string/UserID" android:dialogMessage="@string/preferenceUserIDDescription" android:summary="Noch kein Probandencode festgelegt"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/preferenceWakeTimes" android:summary="@string/preferenceWakeTimesDescription">
+        <ListPreference android:entryValues="@array/waketimeOneVal" android:title="@string/WakeTime9To12" android:entries="@array/waketimeOne" android:dialogTitle="@string/WakeTime9To12" android:key="preferenceWTList1" android:summary="Keine Uhrzeit festgelegt"/>
+        <ListPreference android:dialogTitle="@string/WakeTime13To15" android:entryValues="@array/waketimeTwoVal" android:title="@string/WakeTime13To15" android:entries="@array/waketimeTwo" android:key="preferenceWTList2" android:summary="Keine Uhrzeit festgelegt"/>
+        <ListPreference android:dialogTitle="@string/WakeTime16To19" android:entryValues="@array/waketimeThreeVal" android:title="@string/WakeTime16To19" android:entries="@array/waketimeThree" android:key="preferenceWTList3" android:summary="Keine Uhrzeit festgelegt"/>
+        <ListPreference android:dialogTitle="@string/WakeTime20To23" android:entryValues="@array/waketimeFourVal" android:title="@string/WakeTime20To23" android:entries="@array/waketimeFour" android:key="preferenceWTList4" android:summary="Keine Uhrzeit festgelegt"/>
+        <RingtonePreference android:summary="Kein Alarmton festgelegt" android:title="Alarmton" android:key="preferenceWakeTone"/>
+    </PreferenceCategory>
+    
+
+</PreferenceScreen>

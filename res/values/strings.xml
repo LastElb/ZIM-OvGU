@@ -5,6 +5,16 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="TimePickerHeader">Einrichtung</string>
-    <string name="TimePickerDescription">Setzten Sie Ihren Probandencode und wählen sie aus jeder Box eine Uhrzeit aus, an der Sie erinnert werden, Ihre sozialen Kontakte auszuwählen.</string>
+    <string name="TimePickerDescription">Setzten Sie Ihren Probandencode und wählen sie aus jeder Box eine Uhrzeit aus, an der Sie erinnert werden, Ihre sozialen Kontakte auszuwerten.</string>
+    <string name="UserID">Probandencode</string>
+    <string name="preferenceUserTitle">Benutzerdaten</string>
+    <string name="preferenceUserIDDescription">Geben Sie Ihren Probandencode ein</string>
+    <string name="preferenceWakeTimes">Alarmzeiten</string>
+    <string name="preferenceWakeTimesDescription">Wählen Sie aus, wann die App an Zählung der sozialen Kontakte erinnert.</string>
+    <string name="WakeTime9To12">Alarmzeiten 09:00 - 12:00</string>
+    <string name="WakeTime13To15">Alarmzeiten 13:00 - 15:00</string>
+    <string name="WakeTime16To19">Alarmzeiten 16:00 - 19:00</string>
+    <string name="WakeTime20To23">Alarmzeiten 20:00 - 23:00</string>
+    <string name="title_activity_preference">PreferenceActivity</string>
 
 </resources>

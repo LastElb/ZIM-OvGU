@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="waketimeOne">
+        <item >09:00 Uhr</item>
+        <item >10:00 Uhr</item>
+        <item >11:00 Uhr</item>
+        <item >12:00 Uhr</item>
+    </string-array>
+    <string-array name="waketimeTwo">
+        <item >13:00 Uhr</item>
+        <item >14:00 Uhr</item>
+        <item >15:00 Uhr</item>
+    </string-array>
+    <string-array name="waketimeThree">
+        <item >16:00 Uhr</item>
+        <item >17:00 Uhr</item>
+        <item >18:00 Uhr</item>
+        <item >19:00 Uhr</item>
+    </string-array>
+    <string-array name="waketimeFour">
+        <item >20:00 Uhr</item>
+        <item >21:00 Uhr</item>
+        <item >22:00 Uhr</item>
+        <item >23:00 Uhr</item>
+    </string-array>
+    
+    <string-array name="waketimeOneVal">
+        <item >09:00 Uhr</item>
+        <item >10:00 Uhr</item>
+        <item >11:00 Uhr</item>
+        <item >12:00 Uhr</item>
+    </string-array>
+    <string-array name="waketimeTwoVal">
+        <item >13:00 Uhr</item>
+        <item >14:00 Uhr</item>
+        <item >15:00 Uhr</item>
+    </string-array>
+    <string-array name="waketimeThreeVal">
+        <item >16:00 Uhr</item>
+        <item >17:00 Uhr</item>
+        <item >18:00 Uhr</item>
+        <item >19:00 Uhr</item>
+    </string-array>
+    <string-array name="waketimeFourVal">
+        <item >20:00 Uhr</item>
+        <item >21:00 Uhr</item>
+        <item >22:00 Uhr</item>
+        <item >23:00 Uhr</item>
+    </string-array>
+</resources>
