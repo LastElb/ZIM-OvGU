@@ -4,5 +4,7 @@
     <string name="app_name">ZIM</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="TimePickerHeader">Einrichtung</string>
+    <string name="TimePickerDescription">Setzten Sie Ihren Probandencode und wählen sie aus jeder Box eine Uhrzeit aus, an der Sie erinnert werden, Ihre sozialen Kontakte auszuwählen.</string>
 
 </resources>
