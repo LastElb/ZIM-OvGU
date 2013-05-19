@@ -922,13 +922,11 @@ containing a value of this type.
         public static final int abs__toast_frame=0x7f02006f;
         public static final int ic_compose_inverse=0x7f020070;
         public static final int ic_launcher=0x7f020071;
-        public static final int ic_refresh_inverse=0x7f020072;
-        public static final int ic_search_inverse=0x7f020073;
+        public static final int ic_navigation_accept=0x7f020072;
+        public static final int ic_refresh_inverse=0x7f020073;
+        public static final int ic_search_inverse=0x7f020074;
     }
     public static final class id {
-        public static final int TextView01=0x7f050036;
-        public static final int ViewDescription=0x7f050034;
-        public static final int ViewHeader=0x7f050033;
         public static final int abs__action_bar=0x7f050020;
         public static final int abs__action_bar_container=0x7f05001f;
         public static final int abs__action_bar_subtitle=0x7f050011;
@@ -968,15 +966,13 @@ containing a value of this type.
         public static final int abs__textButton=0x7f050013;
         public static final int abs__title=0x7f05001b;
         public static final int abs__up=0x7f05000b;
-        public static final int action_settings=0x7f050038;
+        public static final int action_settings=0x7f050033;
         public static final int disableHome=0x7f050009;
-        public static final int editText1=0x7f050037;
         public static final int edit_query=0x7f050026;
         public static final int homeAsUp=0x7f050006;
         public static final int listMode=0x7f050002;
         public static final int normal=0x7f050001;
         public static final int relativeLayout1=0x7f050032;
-        public static final int relativeLayout2=0x7f050035;
         public static final int showCustom=0x7f050008;
         public static final int showHome=0x7f050005;
         public static final int showTitle=0x7f050007;
