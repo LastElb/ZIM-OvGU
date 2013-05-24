@@ -24,6 +24,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity {
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 preference.setSummary("Der festgelegte Probandencode lautet: "+newValue.toString());
                 SetDoneIcon(preference);
+             
                 return true;
             }
         });
