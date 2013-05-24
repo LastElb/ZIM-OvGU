@@ -25,6 +25,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity {
                 preference.setSummary("Der festgelegte Probandencode lautet: "+newValue.toString());
                 SetDoneIcon(preference);
                 return true;
+                
             }
         });
 		
