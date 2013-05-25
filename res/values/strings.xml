@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">ZIM</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
     <string name="TimePickerHeader">Einrichtung</string>
-    <string name="TimePickerDescription">Setzten Sie Ihren Probandencode und wählen sie aus jeder Box eine Uhrzeit aus, an der Sie erinnert werden, Ihre sozialen Kontakte auszuwerten.</string>
     <string name="UserID">Probandencode</string>
     <string name="preferenceUserTitle">Benutzerdaten</string>
-    <string name="preferenceUserIDDescription">Geben Sie Ihren Probandencode ein</string>
+    <string name="preferenceUserIDDescription">Kein Probandencode festgelegt</string>
     <string name="preferenceWakeTimes">Alarmzeiten</string>
     <string name="preferenceWakeTimesDescription">Wählen Sie aus, wann die App an Zählung der sozialen Kontakte erinnert.</string>
     <string name="title_activity_preference">PreferenceActivity</string>
-
+    <string name="WakeTime9to12">Alarmzeit 9 Uhr - 12 Uhr</string>
+    <string name="WakeTime13to15">Alarmzeit 13 Uhr - 15 Uhr</string>
+    <string name="WakeTime16to19">Alarmzeit 16 Uhr - 19 Uhr</string>
+    <string name="WakeTime20to23">Alarmzeit 20 Uhr - 21 Uhr</string>
+    <string name="PreferenceChooseWakeTime">Wählen Sie eine Uhrzeit aus der Liste.</string>
+    <string name="PreferenceVibration">Vibration</string>
+    <string name="PreferenceVibrationDescription">Das Smartphone vibriert zusätzlich zum Alarmton.</string>
+    <string name="PreferenceNoVibrationDescription">Das Smartphone vibriert nicht zusätzlich zum Alarmton.</string>
+    <string name="PreferenceRingtone">Alarmton</string>
+    <string name="PreferenceRingtoneDescription">Kein Alarmton festgelegt</string>
+    <string name="PreferenceNoWakeTime">Keine Alarmzeit festgelegt</string>
+    <string name="PreferenceUserIDSet">Der eingegebene Probandencode lautet: </string>
+    <string name="PreferenceWakeTimeSet">Die App alarmiert um </string>
+    <string name="UserIDManual">Ihr Probandencode hat folgendes Buchstabenmuster:\n1. Dritter Buchstabe des Vornamens der Mutter\n2. Dritter Buchstabe des Vornamens des Vaters\n3. Dritter Buchstabe des Geburtsortes\n4. Dritter Buchstabe der aktuellen Straße (Hauptwohnsitz)\n5. Dritter Buchstabe des Geburtsmonats</string>
 </resources>

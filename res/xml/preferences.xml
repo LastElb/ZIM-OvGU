@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="Einstellungen" android:key="appPreferences">
+    <PreferenceCategory android:title="Benutzer">
+        <EditTextPreference android:title="@string/UserID" android:dialogTitle="@string/UserID" android:summary="@string/preferenceUserIDDescription" android:key="preferenceUserID" android:dialogMessage="@string/UserIDManual"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Alarmzeiten">
+        <ListPreference android:entries="@array/WakeTimes9to12"  android:entryValues="@array/WakeTimes9to12Value"  android:title="@string/WakeTime9to12" android:key="WakeTime1" android:summary="@string/PreferenceNoWakeTime" android:dialogTitle="@string/WakeTime9to12"/>
+        <ListPreference android:entries="@array/WakeTimes13to15" android:entryValues="@array/WakeTimes13to15Value" android:dialogTitle="@string/WakeTime13to15" android:title="@string/WakeTime13to15" android:summary="@string/PreferenceNoWakeTime" android:key="WakeTime2"/>
+        <ListPreference android:entries="@array/WakeTimes16to19" android:entryValues="@array/WakeTimes16to19Value" android:dialogTitle="@string/WakeTime16to19" android:title="@string/WakeTime16to19" android:summary="@string/PreferenceNoWakeTime" android:key="WakeTime3"/>
+        <ListPreference android:entries="@array/WakeTimes20to23" android:entryValues="@array/WakeTimes20to23Value" android:dialogTitle="@string/WakeTime20to23" android:title="@string/WakeTime20to23" android:summary="@string/PreferenceNoWakeTime" android:key="WakeTime4"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Alarm">
+        <RingtonePreference android:showDefault="true" android:showSilent="true" android:summary="@string/PreferenceRingtoneDescription" android:title="@string/PreferenceRingtone"/>
+        <CheckBoxPreference android:summary="@string/PreferenceVibrationDescription" android:title="@string/PreferenceVibration" android:enabled="true" android:key="CheckBoxVibration"/>
+    </PreferenceCategory>
+    
+
+</PreferenceScreen>
