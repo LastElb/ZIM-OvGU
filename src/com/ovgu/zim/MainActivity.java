@@ -20,7 +20,7 @@ public class MainActivity extends SherlockActivity {
 		//Check the user preferences (alarmtime,...)
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		// comment the next line if you want to keep the user preferences
-		//preferences.edit().clear().commit();
+		preferences.edit().clear().commit();
 		
 		//We are checking, if the usercode is set. If not, we show the PreferenceActivity.
 		String savedUserID = preferences.getString("preferenceUserID", "");

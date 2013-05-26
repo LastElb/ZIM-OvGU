@@ -1,6 +1,10 @@
 package com.ovgu.zim;
 
 
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -9,6 +13,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
+@SuppressWarnings("unused")
 public class PreferenceActivity extends SherlockPreferenceActivity  {
 
 	@SuppressWarnings("deprecation")
@@ -22,9 +27,19 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 		this.findPreference("preferenceUserID").setOnPreferenceChangeListener(new OnPreferenceChangeListener(){
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
-                preference.setSummary(changedUserID + " " + newValue.toString());
-                SetDoneIcon(preference);
-                return true;
+            	//Delete whitespace
+            	newValue=newValue.toString().toLowerCase(Locale.GERMAN).trim();
+            	//Create a regex
+            	Pattern p = Pattern.compile("((?:[a-ü][a-ü]+))",Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
+                Matcher m = p.matcher(newValue.toString());
+            	if (m.matches()&& newValue.toString().length()==5){
+            		preference.setSummary(changedUserID + " " + newValue.toString());
+                    SetDoneIcon(preference);
+                    _isIDSet=true;
+                    return true;
+            	}
+            	_isIDSet=false;
+                return false;
             }
         });
 		
@@ -37,6 +52,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 						preference.setSummary(changedWakeTime + " "
 								+ newValue.toString() + ":00 Uhr");
 						SetDoneIcon(preference);
+						_isWakeTime1Set = true;
 						return true;
 					}
 				});
@@ -49,6 +65,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 						preference.setSummary(changedWakeTime + " "
 								+ newValue.toString() + ":00 Uhr");
 						SetDoneIcon(preference);
+						_isWakeTime2Set = true;
 						return true;
 					}
 				});
@@ -61,6 +78,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 						preference.setSummary(changedWakeTime + " "
 								+ newValue.toString() + ":00 Uhr");
 						SetDoneIcon(preference);
+						_isWakeTime3Set = true;
 						return true;
 					}
 				});
@@ -73,9 +91,41 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 						preference.setSummary(changedWakeTime + " "
 								+ newValue.toString() + ":00 Uhr");
 						SetDoneIcon(preference);
+						_isWakeTime4Set = true;
 						return true;
 					}
 				});
+		
+		//Ringtone
+		this.findPreference("RingtonePreference").setOnPreferenceChangeListener(
+				new OnPreferenceChangeListener() {
+					@Override
+					public boolean onPreferenceChange(Preference preference,
+							Object newValue) {
+						preference.setSummary(newValue.toString());
+						SetDoneIcon(preference);
+						_isRingtoneSet = true;
+						return true;
+					}
+				});
+		
+		
+		//Vibration
+		final String VibrationSummary=this.getString(R.string.PreferenceVibrationDescription);
+		final String NoVibrationSummary=this.getString(R.string.PreferenceNoVibrationDescription);
+		this.findPreference("CheckBoxVibration")
+				.setOnPreferenceChangeListener(
+						new OnPreferenceChangeListener() {
+							@Override
+							public boolean onPreferenceChange(Preference preference, Object newValue) {
+								if (newValue=="true"){
+									preference.setSummary(VibrationSummary);
+								}else{
+									preference.setSummary(NoVibrationSummary);
+								}
+								return true;
+							}
+						});
 	}
 	
 	@SuppressLint("NewApi")
@@ -95,5 +145,12 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 								| MenuItem.SHOW_AS_ACTION_WITH_TEXT);
 		return super.onCreateOptionsMenu(menu);
 	}
+	
+	private boolean _isIDSet = false;
+	private boolean _isWakeTime1Set = false;
+	private boolean _isWakeTime2Set = false;
+	private boolean _isWakeTime3Set = false;
+	private boolean _isWakeTime4Set = false;
+	private boolean _isRingtoneSet = false;
 
 }
