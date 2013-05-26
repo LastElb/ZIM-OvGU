@@ -11,7 +11,7 @@
     <string name="WakeTime9to12">Alarmzeit 9 Uhr - 12 Uhr</string>
     <string name="WakeTime13to15">Alarmzeit 13 Uhr - 15 Uhr</string>
     <string name="WakeTime16to19">Alarmzeit 16 Uhr - 19 Uhr</string>
-    <string name="WakeTime20to23">Alarmzeit 20 Uhr - 21 Uhr</string>
+    <string name="WakeTime20to23">Alarmzeit 20 Uhr - 23 Uhr</string>
     <string name="PreferenceChooseWakeTime">Wählen Sie eine Uhrzeit aus der Liste.</string>
     <string name="PreferenceVibration">Vibration</string>
     <string name="PreferenceVibrationDescription">Das Smartphone vibriert zusätzlich zum Alarmton.</string>
@@ -22,4 +22,5 @@
     <string name="PreferenceUserIDSet">Der eingegebene Probandencode lautet: </string>
     <string name="PreferenceWakeTimeSet">Die App alarmiert um </string>
     <string name="UserIDManual">Ihr Probandencode hat folgendes Buchstabenmuster:\n1. Dritter Buchstabe des Vornamens der Mutter\n2. Dritter Buchstabe des Vornamens des Vaters\n3. Dritter Buchstabe des Geburtsortes\n4. Dritter Buchstabe der aktuellen Straße (Hauptwohnsitz)\n5. Dritter Buchstabe des Geburtsmonats</string>
+    <string name="EmptyString"></string>
 </resources>
