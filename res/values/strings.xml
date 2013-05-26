@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ZIM</string>
+    <string name="save">Speichern</string>
     <string name="TimePickerHeader">Einrichtung</string>
     <string name="UserID">Probandencode</string>
     <string name="preferenceUserTitle">Benutzerdaten</string>
@@ -23,4 +24,5 @@
     <string name="PreferenceWakeTimeSet">Die App alarmiert um </string>
     <string name="UserIDManual">Ihr Probandencode hat folgendes Buchstabenmuster:\n1. Dritter Buchstabe des Vornamens der Mutter\n2. Dritter Buchstabe des Vornamens des Vaters\n3. Dritter Buchstabe des Geburtsortes\n4. Dritter Buchstabe der aktuellen Straße (Hauptwohnsitz)\n5. Dritter Buchstabe des Geburtsmonats</string>
     <string name="EmptyString"></string>
+    <string name="PreferencesNotSet">Nicht alle Einstellungen wurden gesetzt!</string>
 </resources>

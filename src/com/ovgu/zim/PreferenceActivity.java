@@ -1,21 +1,30 @@
 package com.ovgu.zim;
 
-
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.preference.Preference.OnPreferenceChangeListener;
+import android.widget.Toast;
+
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
-@SuppressWarnings("unused")
 public class PreferenceActivity extends SherlockPreferenceActivity  {
 
+	private boolean _isIDSet = false;
+	private boolean _isWakeTime1Set = false;
+	private boolean _isWakeTime2Set = false;
+	private boolean _isWakeTime3Set = false;
+	private boolean _isWakeTime4Set = false;
+	private boolean _isRingtoneSet = false;
+	
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +53,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
         });
 		
 		//The following four constructs get called when the selected alarm time changes
-		this.findPreference("WakeTime1").setOnPreferenceChangeListener(
-				new OnPreferenceChangeListener() {
+		this.findPreference("WakeTime1").setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
 					@Override
 					public boolean onPreferenceChange(Preference preference,
 							Object newValue) {
@@ -57,8 +65,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 					}
 				});
 		
-		this.findPreference("WakeTime2").setOnPreferenceChangeListener(
-				new OnPreferenceChangeListener() {
+		this.findPreference("WakeTime2").setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
 					@Override
 					public boolean onPreferenceChange(Preference preference,
 							Object newValue) {
@@ -70,8 +77,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 					}
 				});
 		
-		this.findPreference("WakeTime3").setOnPreferenceChangeListener(
-				new OnPreferenceChangeListener() {
+		this.findPreference("WakeTime3").setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
 					@Override
 					public boolean onPreferenceChange(Preference preference,
 							Object newValue) {
@@ -83,8 +89,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 					}
 				});
 
-		this.findPreference("WakeTime4").setOnPreferenceChangeListener(
-				new OnPreferenceChangeListener() {
+		this.findPreference("WakeTime4").setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
 					@Override
 					public boolean onPreferenceChange(Preference preference,
 							Object newValue) {
@@ -97,8 +102,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 				});
 		
 		//Ringtone
-		this.findPreference("RingtonePreference").setOnPreferenceChangeListener(
-				new OnPreferenceChangeListener() {
+		this.findPreference("RingtonePreference").setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
 					@Override
 					public boolean onPreferenceChange(Preference preference,
 							Object newValue) {
@@ -109,13 +113,10 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 					}
 				});
 		
-		
 		//Vibration
 		final String VibrationSummary=this.getString(R.string.PreferenceVibrationDescription);
 		final String NoVibrationSummary=this.getString(R.string.PreferenceNoVibrationDescription);
-		this.findPreference("CheckBoxVibration")
-				.setOnPreferenceChangeListener(
-						new OnPreferenceChangeListener() {
+		this.findPreference("CheckBoxVibration").setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
 							@Override
 							public boolean onPreferenceChange(Preference preference, Object newValue) {
 								if (newValue=="true"){
@@ -135,22 +136,44 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
         }
 	}
 
+	/**
+     * {@inheritDoc}
+     */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		menu.add("Save")
+		menu.add(this.getString(R.string.save))
 				.setIcon(R.drawable.ic_content_save)
-				.setShowAsAction(
-						MenuItem.SHOW_AS_ACTION_IF_ROOM
-								| MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+				.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM| MenuItem.SHOW_AS_ACTION_WITH_TEXT);
 		return super.onCreateOptionsMenu(menu);
 	}
 	
-	private boolean _isIDSet = false;
-	private boolean _isWakeTime1Set = false;
-	private boolean _isWakeTime2Set = false;
-	private boolean _isWakeTime3Set = false;
-	private boolean _isWakeTime4Set = false;
-	private boolean _isRingtoneSet = false;
-
+	/**
+     * {@inheritDoc}
+     */
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // If this callback does not handle the item click, onPerformDefaultAction
+        // of the ActionProvider is invoked. Hence, the provider encapsulates the
+        // complete functionality of the menu item.
+		// ---
+		// We just have one MenuItem in this window, so we can handle everything inside here
+		//
+		// We are checking if all settings are set. If not, we show a toast.
+        if (_isIDSet && _isWakeTime1Set && _isWakeTime2Set && _isWakeTime3Set && _isWakeTime4Set && _isRingtoneSet){
+        	finish();
+        }else{
+        	Toast.makeText(this, this.getString(R.string.PreferencesNotSet),
+                    Toast.LENGTH_SHORT).show();
+        }
+        return true;
+    }
+	
+	@Override
+	public void onBackPressed() {
+		// If the user presses the backbutton, we delete all settings that were changed
+		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+		preferences.edit().clear().commit();
+		finish();
+	}
 }
