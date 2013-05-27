@@ -29,5 +29,8 @@
     <string name="title_activity_alarm">AlarmActivity</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="NextAlarmP1">Der nächste Alarm ist auf</string>
+    <string name="NextAlarmP2">:00 Uhr gesetzt.</string>
+    <string name="NextAlarmNotSet">Es wurden noch keine Alarmzeiten gesetzt.</string>
 
 </resources>

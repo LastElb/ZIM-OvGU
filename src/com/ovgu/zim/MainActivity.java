@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockActivity;
@@ -41,6 +42,16 @@ public class MainActivity extends SherlockActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		
+		// We have to set the first alarm here
+		// We also have to update the GUI with the next alarm time
+		int nextAlarm = AlarmSetter.nextAlarmHour(this);
+		TextView textview = (TextView) findViewById(R.id.TextViewNextAlarm);
+		if (nextAlarm == -1){
+			textview.setText(this.getString(R.string.NextAlarmNotSet));
+		}else{
+			textview.setText(this.getString(R.string.NextAlarmP1) + " " + Integer.toString(nextAlarm) + this.getString(R.string.NextAlarmP2));
+		}
 	}
 	
 	@Override
@@ -78,5 +89,6 @@ public class MainActivity extends SherlockActivity {
 		// comment the next line if you want to keep the user preferences
 		preferences.edit().clear().commit();
 		Toast.makeText(this, "Preferences wiped", Toast.LENGTH_SHORT).show();
+		onResume();
 	}
 }

@@ -40,9 +40,7 @@ public class AlarmActivity extends SherlockActivity {
         // of the ActionProvider is invoked. Hence, the provider encapsulates the
         // complete functionality of the menu item.
 		// ---
-		// We just have one MenuItem in this window, so we can handle everything inside here
-		//
-		// We are checking if all settings are set. If not, we show a toast.
+		// We have to ensure that the minutes inserted in the textbox are not more than the actually time left since the last alarm.
         
         return true;
     }
