@@ -32,5 +32,23 @@
     <string name="NextAlarmP1">Der nächste Alarm ist auf</string>
     <string name="NextAlarmP2">:00 Uhr gesetzt.</string>
     <string name="NextAlarmNotSet">Es wurden noch keine Alarmzeiten gesetzt.</string>
-
+    <string name="NextAlarmHeader">Nächster Alarm</string>
+    <string name="SettingsHeader">Einstellungen</string>
+    <string name="SettingsDescription">Stellen Sie Ihren Probandencode, Alarmzeiten und Alarmtyp ein. Der Probandencode und die Alarmzeit können danach nicht mehr verändert werden!</string>
+    <string name="SettingsButtonText">Einstellungen ändern</string>
+    <string name="CSVHeader">CSV-Export</string>
+    <string name="CSVDescription">Sichern Sie die gespeicherten Datensätze im CSV-Format auf dem öffentlichen Telefonspeicher.</string>
+    <string name="CSVButtonText">CSV-Datei speichern</string>
+    <string name="WipeHeader">App zurücksetzen</string>
+    <string name="WipeDescription">Setzten Sie mit Hilfe des mitgeteilten Passworts die Einstellungen und Datensätze des Probanden zurück.</string>
+    <string name="WipeButtonText">App zurücksetzen</string>
+    <string name="ContactCountHeader">Anzahl der Kontakte</string>
+    <string name="ContactCountDescription">Geben Sie an, wie viele soziale Kontakte Sie seit dem letzten Alarmzeitpunkt hatten.</string>
+    <string name="ContactCount1">+1 Kontakt</string>
+    <string name="ContactCount5">+5 Kontakte</string>
+    <string name="ContactTimeHeader">Kontaktzeit</string>
+    <string name="ContactTimeDescription">Geben Sie an, wie viele Minuten Sie mit den sozialen Kontakten verbracht haben.</string>
+    <string name="ContactTime5">+5 Minuten</string>
+    <string name="ContactTime15">+15 Minuten</string>
+	<string name="zero">0</string>
 </resources>

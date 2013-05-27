@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/TextView01"
                 android:layout_marginTop="10dp"
-                android:text="Anzahl der Kontakte"
+                android:text="@string/ContactCountHeader"
                 android:textColor="#707070"
                 android:textSize="28sp"
                 android:typeface="normal" />
@@ -39,7 +39,7 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:layout_marginTop="12dp"
-                android:text="Geben Sie an, wie viele soziale Kontakte im vergangenen Zeitraum seit ... hatten."
+                android:text="@string/ContactCountDescription"
                 android:textColor="#707070" />
 
             <EditText
@@ -52,7 +52,7 @@
                 android:layout_marginTop="12dp"
                 android:ems="10"
                 android:inputType="number"
-                android:text="0" />
+                android:text="@string/zero" />
 
             <View
                 android:id="@+id/View01"
@@ -82,7 +82,7 @@
                     android:onClick="increaseContacts1"
                     android:paddingBottom="12dp"
                     android:paddingTop="12dp"
-                    android:text="+1 Kontakt"
+                    android:text="@string/ContactCount1"
                     android:textColor="#34B5E5" />
 
                 <TextView
@@ -96,7 +96,7 @@
                     android:onClick="increaseContacts5"
                     android:paddingBottom="12dp"
                     android:paddingTop="12dp"
-                    android:text="+5 Kontakte"
+                    android:text="@string/ContactCount1"
                     android:textColor="#34B5E5" />
 
             </LinearLayout>
@@ -128,7 +128,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/TextView06"
                 android:layout_marginTop="10dp"
-                android:text="Kontaktzeit"
+                android:text="@string/ContactTimeHeader"
                 android:textColor="#707070"
                 android:textSize="28sp"
                 android:typeface="normal" />
@@ -141,7 +141,7 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:layout_marginTop="12dp"
-                android:text="Geben Sie an, wie viele Minuten Sie mit den sozialen Kontakten verbracht haben."
+                android:text="@string/ContactTimeDescription"
                 android:textColor="#707070" />
 
             <EditText
@@ -154,7 +154,7 @@
                 android:layout_marginTop="12dp"
                 android:ems="10"
                 android:inputType="number"
-                android:text="0" />
+                android:text="@string/zero" />
 
             <View
                 android:id="@+id/View02"
@@ -181,10 +181,10 @@
                     android:background="@color/linkcolor"
                     android:clickable="true"
                     android:gravity="center"
+                    android:onClick="increaseContactsTime5"
                     android:paddingBottom="12dp"
                     android:paddingTop="12dp"
-                    android:text="+5 Minuten"
-                    android:onClick="increaseContactsTime5"
+                    android:text="@string/ContactTime5"
                     android:textColor="#34B5E5" />
 
                 <TextView
@@ -195,11 +195,12 @@
                     android:background="@color/linkcolor"
                     android:clickable="true"
                     android:gravity="center"
+                    android:onClick="increaseContactsTime15"
                     android:paddingBottom="12dp"
                     android:paddingTop="12dp"
-                    android:text="+15 Minuten"
-                    android:onClick="increaseContactsTime15"
+                    android:text="@string/ContactTime15"
                     android:textColor="#34B5E5" />
+
             </LinearLayout>
         </RelativeLayout>
 		<View

@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/TextViewNextAlarm"
                 android:layout_marginTop="10dp"
-                android:text="Nächster Alarm"
+                android:text="@string/NextAlarmHeader"
                 android:textColor="#707070"
                 android:textSize="28sp" />
 
@@ -40,7 +40,7 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:layout_marginTop="12dp"
-                android:text="Der nächste Alarm findet um "
+                android:text="@string/NextAlarmNotSet"
                 android:textColor="#707070" />
 
         </RelativeLayout>
@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/TextView01"
                 android:layout_marginTop="10dp"
-                android:text="Einstellungen"
+                android:text="@string/SettingsHeader"
                 android:textColor="#707070"
                 android:textSize="28sp"
                 android:typeface="normal" />
@@ -83,7 +83,7 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:layout_marginTop="12dp"
-                android:text="Stellen Sie Ihren Probandencode, Alarmzeiten und Alarmtyp ein. Der Probandencode und die Alarmzeit können danach nicht mehr verändert werden!"
+                android:text="@string/SettingsDescription"
                 android:textColor="#707070" />
 
             <View
@@ -104,17 +104,17 @@
                 android:layout_below="@+id/View01"
                 android:layout_centerHorizontal="true"
                 android:background="@color/linkcolor"
-                android:paddingTop="12dp"
-                android:paddingBottom="12dp"
                 android:clickable="true"
                 android:gravity="center"
                 android:onClick="openPreferences"
-                android:text="Einstellungen ändern"
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp"
+                android:text="@string/SettingsButtonText"
                 android:textColor="#34B5E5" />
 
         </RelativeLayout>
         <View
-            android:id="@+id/View4"
+            android:id="@+id/View7"
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:layout_below="@+id/LayoutChangePreferences"
@@ -138,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/TextView05"
                 android:layout_marginTop="10dp"
-                android:text="CSV-Export"
+                android:text="@string/CSVHeader"
                 android:textColor="#707070"
                 android:textSize="28sp"
                 android:typeface="normal" />
@@ -151,7 +151,7 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:layout_marginTop="12dp"
-                android:text="Sichern Sie die gespeicherten Datensätze im CSV-Format auf dem öffentlichen Telefonspeicher."
+                android:text="@string/CSVDescription"
                 android:textColor="#707070" />
 
             <View
@@ -167,20 +167,21 @@
 
             <TextView
                 android:id="@+id/TextView06"
-                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/View02"
                 android:layout_centerHorizontal="true"
                 android:background="@color/linkcolor"
-                android:paddingTop="12dp"
-                android:paddingBottom="12dp"
                 android:clickable="true"
-                android:text="CSV-Datei speichern"
+                android:gravity="center"
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp"
+                android:text="@string/CSVButtonText"
                 android:textColor="#34B5E5" />
+
         </RelativeLayout>
         <View
-            android:id="@+id/View4"
+            android:id="@+id/View6"
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:layout_below="@+id/LayoutCSVExport"
@@ -203,7 +204,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/TextView09"
                 android:layout_marginTop="10dp"
-                android:text="App zurücksetzen"
+                android:text="@string/WipeHeader"
                 android:textColor="#707070"
                 android:textSize="28sp"
                 android:typeface="normal" />
@@ -216,7 +217,7 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:layout_marginTop="12dp"
-                android:text="Setzten Sie mit Hilfe des mitgeteilten Passworts die Einstellungen und Datensätze des Probanden zurück."
+                android:text="@string/WipeDescription"
                 android:textColor="#707070" />
 
             <View
@@ -232,21 +233,22 @@
 
             <TextView
                 android:id="@+id/TextView07"
-                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/View03"
                 android:layout_centerHorizontal="true"
-                android:text="App zurücksetzen"
-                android:textColor="#34B5E5"
-                android:onClick="wipeData"
-                android:clickable="true"
                 android:background="@color/linkcolor"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="wipeData"
+                android:paddingBottom="12dp"
                 android:paddingTop="12dp"
-                android:paddingBottom="12dp" />
+                android:text="@string/WipeButtonText"
+                android:textColor="#34B5E5" />
+
         </RelativeLayout>
         <View
-            android:id="@+id/View4"
+            android:id="@+id/View5"
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:layout_below="@+id/LayoutWipe"
