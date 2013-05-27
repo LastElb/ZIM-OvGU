@@ -47,12 +47,17 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 			
 			//UserID
 			this.findPreference("preferenceUserID").setSummary(changedUserID + " " + preferences.getString("preferenceUserID", ""));
+			this.findPreference("preferenceUserID").setEnabled(false);
 			
 			//AlarmTimes
 			this.findPreference("WakeTime1").setSummary(changedWakeTime + " " + preferences.getString("WakeTime1", "") + ":00 Uhr");
 			this.findPreference("WakeTime2").setSummary(changedWakeTime + " " + preferences.getString("WakeTime2", "") + ":00 Uhr");
 			this.findPreference("WakeTime3").setSummary(changedWakeTime + " " + preferences.getString("WakeTime3", "") + ":00 Uhr");
 			this.findPreference("WakeTime4").setSummary(changedWakeTime + " " + preferences.getString("WakeTime4", "") + ":00 Uhr");
+			this.findPreference("WakeTime1").setEnabled(false);
+			this.findPreference("WakeTime2").setEnabled(false);
+			this.findPreference("WakeTime3").setEnabled(false);
+			this.findPreference("WakeTime4").setEnabled(false);
 			
 			//Ringtone
 			this.findPreference("RingtonePreference").setSummary(preferences.getString("RingtonePreference", ""));

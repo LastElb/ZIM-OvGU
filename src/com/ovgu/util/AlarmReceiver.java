@@ -1,5 +1,7 @@
 package com.ovgu.util;
 
+import java.io.IOException;
+
 import com.ovgu.zim.AlarmActivity;
 import com.ovgu.zim.R;
 
@@ -8,7 +10,12 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Vibrator;
+import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 
 public class AlarmReceiver extends BroadcastReceiver {
@@ -16,8 +23,19 @@ public class AlarmReceiver extends BroadcastReceiver {
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		// Vibrate the mobile phone
-	    Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-	    vibrator.vibrate(2000);
+		
+		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+		if (preferences.getBoolean("CheckBoxVibration", false) == true){
+			Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+		    vibrator.vibrate(1500);
+		}
+		
+		String alarms = preferences.getString("RingtonePreference", "default ringtone");
+		if (alarms.length()>0){
+			Uri uri = Uri.parse(alarms);
+		    playSound(context, uri);
+		}
+	    
 	    
 	    NotificationCompat.Builder mBuilder =
 	            new NotificationCompat.Builder(context)
@@ -34,6 +52,39 @@ public class AlarmReceiver extends BroadcastReceiver {
 	    int mId=1000;
 		// mId allows you to update the notification later on.
 	    mNotificationManager.notify(mId, mBuilder.build());
+	}
+	
+	private MediaPlayer mMediaPlayer;
+
+	private void playSound(Context context, Uri alert) {
+		mMediaPlayer = new MediaPlayer();
+		try {
+			mMediaPlayer.setDataSource(context, alert);
+			final AudioManager audioManager = (AudioManager) context
+					.getSystemService(Context.AUDIO_SERVICE);
+			if (audioManager.getStreamVolume(AudioManager.STREAM_ALARM) != 0) {
+				mMediaPlayer.setAudioStreamType(AudioManager.STREAM_ALARM);
+				mMediaPlayer.prepare();
+				mMediaPlayer.start();
+			}
+			
+			mMediaPlayer.setOnSeekCompleteListener(new MediaPlayer.OnSeekCompleteListener() {
+                @Override
+                public void onSeekComplete(MediaPlayer mediaPlayer) {
+                    mediaPlayer.stop();
+                }
+            });
+			
+			mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mediaPlayer) {
+                    mediaPlayer.release();
+                }
+            });
+			
+		} catch (IOException e) {
+			System.out.println("OOPS");
+		}
 	}
 
 }
