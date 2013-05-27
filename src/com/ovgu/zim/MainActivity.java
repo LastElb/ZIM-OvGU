@@ -22,16 +22,6 @@ public class MainActivity extends SherlockActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		//We are checking, if the usercode is set. If not, we show the PreferenceActivity.
-		/*String savedUserID = preferences.getString("preferenceUserID", "");
-		if (savedUserID == ""){
-			Intent intent = new Intent(this, PreferenceActivity.class);
-			startActivity(intent);
-		}else{
-			AlarmSetter as = new AlarmSetter();
-			as.setAlarm(this);
-		}*/
 	}
 	
 	@Override
@@ -46,11 +36,14 @@ public class MainActivity extends SherlockActivity {
 		// We have to set the first alarm here
 		// We also have to update the GUI with the next alarm time
 		int nextAlarm = AlarmSetter.nextAlarmHour(this);
+		AlarmSetter as = new AlarmSetter();
 		TextView textview = (TextView) findViewById(R.id.TextViewNextAlarm);
 		if (nextAlarm == -1){
 			textview.setText(this.getString(R.string.NextAlarmNotSet));
+			as.deleteAlarms(this);
 		}else{
 			textview.setText(this.getString(R.string.NextAlarmP1) + " " + Integer.toString(nextAlarm) + this.getString(R.string.NextAlarmP2));
+			as.setAlarms(this);
 		}
 	}
 	
