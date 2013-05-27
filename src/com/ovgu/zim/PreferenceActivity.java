@@ -29,7 +29,40 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		addPreferencesFromResource(R.xml.preferences);
+		setSavedValues();
+		createPreferenceChangedListener();
+	}
+	
+	@SuppressWarnings("deprecation")
+	private void setSavedValues(){
+		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+		// Just set values, if the userid is not empty
+		String userid = preferences.getString("preferenceUserID", ""); 
+		if(userid.length() != 0){
+			// Variables
+			final String changedWakeTime = this.getString(R.string.PreferenceWakeTimeSet);
+			final String changedUserID = this.getString(R.string.PreferenceUserIDSet);
+			
+			//UserID
+			this.findPreference("preferenceUserID").setSummary(changedUserID + " " + preferences.getString("preferenceUserID", ""));
+			
+			//AlarmTimes
+			this.findPreference("WakeTime1").setSummary(changedWakeTime + " " + preferences.getString("WakeTime1", "") + ":00 Uhr");
+			this.findPreference("WakeTime2").setSummary(changedWakeTime + " " + preferences.getString("WakeTime2", "") + ":00 Uhr");
+			this.findPreference("WakeTime3").setSummary(changedWakeTime + " " + preferences.getString("WakeTime3", "") + ":00 Uhr");
+			this.findPreference("WakeTime4").setSummary(changedWakeTime + " " + preferences.getString("WakeTime4", "") + ":00 Uhr");
+			
+			//Ringtone
+			this.findPreference("RingtonePreference").setSummary(preferences.getString("RingtonePreference", ""));
+			
+			_isIDSet = true; _isRingtoneSet = true; _isWakeTime1Set = true; _isWakeTime2Set = true; _isWakeTime3Set = true; _isWakeTime4Set = true; 
+		}
+	}
+	
+	@SuppressWarnings("deprecation")
+	private void createPreferenceChangedListener(){
 		final String changedWakeTime = this.getString(R.string.PreferenceWakeTimeSet);
 		final String changedUserID = this.getString(R.string.PreferenceUserIDSet);
 		//This is called when the UserID changed
@@ -119,7 +152,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 		this.findPreference("CheckBoxVibration").setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
 							@Override
 							public boolean onPreferenceChange(Preference preference, Object newValue) {
-								if (newValue=="true"){
+								if ((Boolean)newValue==true){
 									preference.setSummary(VibrationSummary);
 								}else{
 									preference.setSummary(NoVibrationSummary);
@@ -172,8 +205,9 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 	@Override
 	public void onBackPressed() {
 		// If the user presses the backbutton, we delete all settings that were changed
-		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-		preferences.edit().clear().commit();
+		// SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+		// preferences.edit().clear().commit();
+		// Toast.makeText(this, "Einstellungen verworfen!", Toast.LENGTH_SHORT).show();
 		finish();
 	}
 }
