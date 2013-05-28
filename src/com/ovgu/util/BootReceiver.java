@@ -9,8 +9,9 @@ public class BootReceiver extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		// TODO Auto-generated method stub
-		Toast.makeText(context, "Boot Receiver accepted", Toast.LENGTH_LONG).show();
+		Toast.makeText(context, "Boot Receiver launched", Toast.LENGTH_LONG).show();
+		AlarmSetter as = new AlarmSetter();
+		as.setAlarms(context);
 	}
 	
 }

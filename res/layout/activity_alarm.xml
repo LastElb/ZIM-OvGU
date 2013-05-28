@@ -96,7 +96,7 @@
                     android:onClick="increaseContacts5"
                     android:paddingBottom="12dp"
                     android:paddingTop="12dp"
-                    android:text="@string/ContactCount1"
+                    android:text="@string/ContactCount5"
                     android:textColor="#34B5E5" />
 
             </LinearLayout>
