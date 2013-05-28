@@ -5,7 +5,8 @@
     android:versionName="1.0" >
 
     <uses-permission android:name="android.permission.VIBRATE" />
-
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    
     <uses-sdk
         android:minSdkVersion="7"
         android:targetSdkVersion="17" />
@@ -38,7 +39,11 @@
                 <action android:name="com.ovgu.zim.AlarmActivity" />
             </intent-filter>
         </receiver>
-
+		<receiver android:name="com.ovgu.util.BootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
