@@ -39,23 +39,23 @@ public class AlarmSetter {
 	    Calendar cal1 = Calendar.getInstance();
 	    // This sets the alarm to the next day, if the alarm hour already left today.
 	    // Without this, the past alarms will be also broadcasted
-	    if (cal1.get(Calendar.HOUR_OF_DAY) >= alarm1)
-	    	cal1.add(Calendar.DATE, 1);
+	    //if (cal1.get(Calendar.HOUR_OF_DAY) >= alarm1)
+	    //	cal1.add(Calendar.DATE, 1);
 	    cal1.set(cal1.get(Calendar.YEAR), cal1.get(Calendar.MONTH), cal1.get(Calendar.DAY_OF_MONTH), alarm1, 0);
 	    
 	    Calendar cal2 = Calendar.getInstance();
-	    if (cal2.get(Calendar.HOUR_OF_DAY) >= alarm2)
-	    	cal2.add(Calendar.DATE, 1);
+	    //if (cal2.get(Calendar.HOUR_OF_DAY) >= alarm2)
+	    //	cal2.add(Calendar.DATE, 1);
 	    cal2.set(cal1.get(Calendar.YEAR), cal1.get(Calendar.MONTH), cal1.get(Calendar.DAY_OF_MONTH), alarm2, 0);
 	    
 	    Calendar cal3 = Calendar.getInstance();
-	    if (cal3.get(Calendar.HOUR_OF_DAY) >= alarm3)
-	    	cal3.add(Calendar.DATE, 1);
+	    // if (cal3.get(Calendar.HOUR_OF_DAY) >= alarm3)
+	    //	cal3.add(Calendar.DATE, 1);
 	    cal3.set(cal1.get(Calendar.YEAR), cal1.get(Calendar.MONTH), cal1.get(Calendar.DAY_OF_MONTH), alarm3, 0);
 	    
 	    Calendar cal4 = Calendar.getInstance();
-	    if (cal4.get(Calendar.HOUR_OF_DAY) >= alarm4)
-	    	cal4.add(Calendar.DATE, 1);
+	    //if (cal4.get(Calendar.HOUR_OF_DAY) >= alarm4)
+	    //	cal4.add(Calendar.DATE, 1);
 	    cal4.set(cal1.get(Calendar.YEAR), cal1.get(Calendar.MONTH), cal1.get(Calendar.DAY_OF_MONTH), alarm4, 0);
 
 	    alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, cal1.getTimeInMillis(),  AlarmManager.INTERVAL_DAY, pendingIntent1);
