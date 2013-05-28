@@ -15,9 +15,12 @@ import android.widget.Toast;
 
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.ovgu.util.AlarmSetter;
 
 public class PreferenceActivity extends SherlockPreferenceActivity  {
 
+	private boolean _wasblank = true;
+	
 	private boolean _isIDSet = false;
 	private boolean _isWakeTime1Set = false;
 	private boolean _isWakeTime2Set = false;
@@ -58,6 +61,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 			this.findPreference("WakeTime2").setEnabled(false);
 			this.findPreference("WakeTime3").setEnabled(false);
 			this.findPreference("WakeTime4").setEnabled(false);
+			_wasblank = false;
 			
 			//Ringtone
 			this.findPreference("RingtonePreference").setSummary(preferences.getString("RingtonePreference", ""));
@@ -199,6 +203,15 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 		//
 		// We are checking if all settings are set. If not, we show a toast.
         if (_isIDSet && _isWakeTime1Set && _isWakeTime2Set && _isWakeTime3Set && _isWakeTime4Set && _isRingtoneSet){
+        	int nextAlarm = AlarmSetter.nextAlarmHour(this);
+    		AlarmSetter as = new AlarmSetter();
+    		
+    		if (nextAlarm != -1 && _wasblank == true){
+    			as.setAlarms(this);
+    		}else{
+    			as.deleteAlarms(this);
+    		}
+    		
         	finish();
         }else{
         	Toast.makeText(this, this.getString(R.string.PreferencesNotSet),
@@ -213,6 +226,6 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 		// SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		// preferences.edit().clear().commit();
 		// Toast.makeText(this, "Einstellungen verworfen!", Toast.LENGTH_SHORT).show();
-		finish();
+		// finish();
 	}
 }

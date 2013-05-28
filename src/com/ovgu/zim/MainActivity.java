@@ -43,7 +43,6 @@ public class MainActivity extends SherlockActivity {
 			as.deleteAlarms(this);
 		}else{
 			textview.setText(this.getString(R.string.NextAlarmP1) + " " + Integer.toString(nextAlarm) + this.getString(R.string.NextAlarmP2));
-			as.setAlarms(this);
 		}
 	}
 	

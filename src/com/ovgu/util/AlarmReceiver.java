@@ -24,6 +24,8 @@ public class AlarmReceiver extends BroadcastReceiver {
 	public void onReceive(Context context, Intent intent) {
 		// Vibrate the mobile phone
 		
+		// String intentextra = intent.getStringExtra("alarmtime");
+		
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
 		if (preferences.getBoolean("CheckBoxVibration", false) == true){
 			Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
@@ -35,7 +37,6 @@ public class AlarmReceiver extends BroadcastReceiver {
 			Uri uri = Uri.parse(alarms);
 		    playSound(context, uri);
 		}
-	    
 	    
 	    NotificationCompat.Builder mBuilder =
 	            new NotificationCompat.Builder(context)
