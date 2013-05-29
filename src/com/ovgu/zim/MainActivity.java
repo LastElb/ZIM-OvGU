@@ -3,8 +3,11 @@ package com.ovgu.zim;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Shader.TileMode;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,13 +18,22 @@ import com.actionbarsherlock.view.MenuItem;
 
 import com.ovgu.util.*;
 
+/**
+ * 
+ * @author Igor Lückel
+ *
+ */
 public class MainActivity extends SherlockActivity {
-	//private AlarmReceiver mReceiver;
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		BitmapDrawable bg = (BitmapDrawable)getResources().getDrawable(R.drawable.actionbarbackground);
+        bg.setTileModeXY(TileMode.REPEAT, TileMode.REPEAT);
+        getSupportActionBar().setBackgroundDrawable(bg);
+        getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>OvGU - ZIM</font>"));
 	}
 	
 	@Override

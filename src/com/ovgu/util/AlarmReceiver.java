@@ -18,14 +18,16 @@ import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 
+/**
+ * 
+ * @author Igor Lückel
+ *
+ */
 public class AlarmReceiver extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		// Vibrate the mobile phone
-		
-		// String intentextra = intent.getStringExtra("alarmtime");
-		
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
 		if (preferences.getBoolean("CheckBoxVibration", false) == true){
 			Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
@@ -43,9 +45,16 @@ public class AlarmReceiver extends BroadcastReceiver {
 	            .setSmallIcon(R.drawable.ic_social_group)
 	            .setContentTitle("ZIM-Wecker")
 	            .setContentText("Auswertung der sozialen Kontakte nötig!");
+	    
+	    // Android 2.x has normally a light taskbar. And the icon set previous is also light. So we are changing it here to a dark version if needed
+	    if (android.os.Build.VERSION.RELEASE.startsWith("2.")){
+	    	mBuilder.setSmallIcon(R.drawable.ic_social_group_dark);
+	    }
+	    
+	    
 	    // Creates an explicit intent for an Activity in your app
 	    Intent resultIntent = new Intent(context, AlarmActivity.class);
-
+	    resultIntent.putExtra("alarmtime", intent.getStringExtra("alarmtime"));
 	    PendingIntent resultPendingIntent = PendingIntent.getActivity(context, 0, resultIntent, 0);
 	    mBuilder.setContentIntent(resultPendingIntent);
 	    mBuilder.setAutoCancel(true);
@@ -57,6 +66,11 @@ public class AlarmReceiver extends BroadcastReceiver {
 	
 	private MediaPlayer mMediaPlayer;
 
+	/**
+	 * Plays a sound from a Uri
+	 * @param context The current context
+	 * @param alert Uri to the soundfile
+	 */
 	private void playSound(Context context, Uri alert) {
 		mMediaPlayer = new MediaPlayer();
 		try {

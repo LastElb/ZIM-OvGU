@@ -9,6 +9,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+/**
+ * 
+ * @author Igor Lückel
+ *
+ */
 public class AlarmSetter {
 	public void setAlarms(Context View){
 	    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(View);

@@ -7,6 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+
+/**
+ * 
+ * @author Igor Lückel
+ *
+ */
 public class AlarmActivity extends SherlockActivity {
 	
 	/**

@@ -17,6 +17,11 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.ovgu.util.AlarmSetter;
 
+/**
+ * 
+ * @author Igor Lückel
+ *
+ */
 public class PreferenceActivity extends SherlockPreferenceActivity  {
 
 	private boolean _wasblank = true;
