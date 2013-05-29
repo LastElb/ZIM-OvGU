@@ -226,6 +226,10 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 		// SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		// preferences.edit().clear().commit();
 		// Toast.makeText(this, "Einstellungen verworfen!", Toast.LENGTH_SHORT).show();
-		// finish();
+		if (!_wasblank){
+			finish();
+		}else{
+			Toast.makeText(this, "Benutzen Sie den Speichern-Button!", Toast.LENGTH_SHORT).show();
+		}
 	}
 }
