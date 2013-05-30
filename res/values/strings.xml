@@ -9,7 +9,8 @@
     <string name="preferenceUserIDDescription">Kein Probandencode festgelegt</string>
     <string name="preferenceWakeTimes">Alarmzeiten</string>
     <string name="preferenceWakeTimesDescription">Wählen Sie aus, wann die App an Zählung der sozialen Kontakte erinnert.</string>
-    <string name="title_activity_preference">PreferenceActivity</string>
+    <string name="title_main_activity">OvGU - ZIM</string>
+    <string name="title_activity_preference">Einstellungen</string>
     <string name="WakeTime9to12">Alarmzeit 9 Uhr - 12 Uhr</string>
     <string name="WakeTime13to15">Alarmzeit 13 Uhr - 15 Uhr</string>
     <string name="WakeTime16to19">Alarmzeit 16 Uhr - 19 Uhr</string>
@@ -26,7 +27,7 @@
     <string name="UserIDManual">Ihr Probandencode hat folgendes Buchstabenmuster:\n1. Dritter Buchstabe des Vornamens der Mutter\n2. Dritter Buchstabe des Vornamens des Vaters\n3. Dritter Buchstabe des Geburtsortes\n4. Dritter Buchstabe der aktuellen Straße (Hauptwohnsitz)\n5. Dritter Buchstabe des Geburtsmonats</string>
     <string name="EmptyString"></string>
     <string name="PreferencesNotSet">Nicht alle Einstellungen wurden gesetzt!</string>
-    <string name="title_activity_alarm">AlarmActivity</string>
+    <string name="title_activity_alarm">ZIM - Auswertung</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="NextAlarmP1">Der nächste Alarm ist auf</string>

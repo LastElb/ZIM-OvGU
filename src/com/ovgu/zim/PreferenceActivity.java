@@ -211,7 +211,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
         	int nextAlarm = AlarmSetter.nextAlarmHour(this);
     		AlarmSetter as = new AlarmSetter();
     		
-    		if (nextAlarm != -1 && _wasblank == true){
+    		if (nextAlarm != -1){
     			as.setAlarms(this);
     		}else{
     			as.deleteAlarms(this);

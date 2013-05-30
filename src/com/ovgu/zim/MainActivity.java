@@ -3,11 +3,8 @@ package com.ovgu.zim;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Shader.TileMode;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,11 +26,6 @@ public class MainActivity extends SherlockActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		BitmapDrawable bg = (BitmapDrawable)getResources().getDrawable(R.drawable.actionbarbackground);
-        bg.setTileModeXY(TileMode.REPEAT, TileMode.REPEAT);
-        getSupportActionBar().setBackgroundDrawable(bg);
-        getSupportActionBar().setTitle(Html.fromHtml("<font color='#ffffff'>OvGU - ZIM</font>"));
 	}
 	
 	@Override
@@ -55,7 +47,7 @@ public class MainActivity extends SherlockActivity {
 			as.deleteAlarms(this);
 		}else{
 			textview.setText(this.getString(R.string.NextAlarmP1) + " " + Integer.toString(nextAlarm) + this.getString(R.string.NextAlarmP2));
-			// as.setAlarms(this);
+			//as.setAlarms(this);
 		}
 	}
 	

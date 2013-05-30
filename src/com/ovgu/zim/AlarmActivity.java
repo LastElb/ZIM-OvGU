@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-
 /**
  * 
  * @author Igor Lückel
@@ -22,7 +21,6 @@ public class AlarmActivity extends SherlockActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_alarm);
-		getSupportActionBar().setTitle("ZIM - Auswertung");
 	}
 
 	/**

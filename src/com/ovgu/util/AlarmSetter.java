@@ -26,13 +26,13 @@ public class AlarmSetter {
 		i1.putExtra("alarmtime", Integer.toString(alarm1));
 		
 		Intent i2 = new Intent("com.ovgu.zim.AlarmActivity");
-		i2.putExtra("alarmtime", Integer.toString(alarm1));
+		i2.putExtra("alarmtime", Integer.toString(alarm2));
 		
 		Intent i3 = new Intent("com.ovgu.zim.AlarmActivity");
-		i3.putExtra("alarmtime", Integer.toString(alarm1));
+		i3.putExtra("alarmtime", Integer.toString(alarm3));
 		
 		Intent i4 = new Intent("com.ovgu.zim.AlarmActivity");
-		i4.putExtra("alarmtime", Integer.toString(alarm1));
+		i4.putExtra("alarmtime", Integer.toString(alarm4));
 		
 	    PendingIntent pendingIntent1 = PendingIntent.getBroadcast(View.getApplicationContext(), 8601, i1, PendingIntent.FLAG_ONE_SHOT);
 	    PendingIntent pendingIntent2 = PendingIntent.getBroadcast(View.getApplicationContext(), 8602, i2, PendingIntent.FLAG_ONE_SHOT);

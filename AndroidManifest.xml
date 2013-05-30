@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ovgu.zim"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0" android:installLocation="internalOnly">
 
     <uses-permission android:name="android.permission.VIBRATE" />
 	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -15,23 +15,25 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme" android:logo="@drawable/ic_head">
         <activity
             android:name="com.ovgu.zim.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/title_main_activity"
+            android:icon="@drawable/ic_launcher" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name="com.ovgu.zim.PreferenceActivity"
-            android:label="@string/title_activity_preference" >
+            android:label="@string/title_activity_preference"
+            android:icon="@drawable/ic_head" >
         </activity>
         <activity
             android:name="com.ovgu.zim.AlarmActivity"
-            android:label="@string/title_activity_alarm" >
+            android:label="@string/title_activity_alarm"
+            android:icon="@drawable/ic_head" >
         </activity>
         
         <receiver android:name="com.ovgu.util.AlarmReceiver" >
