@@ -1,6 +1,9 @@
 package com.ovgu.util;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 import com.ovgu.zim.AlarmActivity;
 import com.ovgu.zim.R;
@@ -51,10 +54,25 @@ public class AlarmReceiver extends BroadcastReceiver {
 	    	mBuilder.setSmallIcon(R.drawable.ic_social_group_dark);
 	    }
 	    
+	    SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.getDefault());  
+	    Calendar now = Calendar.getInstance();
 	    
 	    // Creates an explicit intent for an Activity in your app
 	    Intent resultIntent = new Intent(context, AlarmActivity.class);
-	    resultIntent.putExtra("alarmtime", intent.getStringExtra("alarmtime"));
+	    String alarmExtra=format.format(now.getTime());
+	    resultIntent.putExtra("currentAlarmTime", alarmExtra);
+	    
+	    // Set the last Alarm
+	    SharedPreferences settings = context.getSharedPreferences("alarmValues", 0);
+	    SharedPreferences.Editor editor = settings.edit();
+	    editor.putString("lastAlarmTime", settings.getString("currentAlarmTime",""));
+	    editor.putString("currentAlarmTime", format.format(now.getTime()));
+		editor.commit();
+	    
+		if (settings.getString("lastSavedAlarm", "") != settings.getString("lastAlarmTime", "")){
+	    	// The last event was not saved. Save the object with the -77's here
+	    }
+		
 	    PendingIntent resultPendingIntent = PendingIntent.getActivity(context, 0, resultIntent, 0);
 	    mBuilder.setContentIntent(resultPendingIntent);
 	    mBuilder.setAutoCancel(true);
