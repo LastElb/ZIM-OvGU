@@ -65,7 +65,6 @@ public class AlarmActivity extends SherlockActivity {
         // complete functionality of the menu item.
 		// ---
 		// We have to ensure that the minutes inserted in the textbox are not more than the actually time left since the last alarm.
-		checkContactsTime();
 		if (_isTimeCorrect){
 			saveData();
 		}else{
