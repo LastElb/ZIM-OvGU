@@ -1,5 +1,7 @@
 package com.ovgu.util;
 
+import java.text.ParseException;
+
 /**
  * This class is intended to store temporary data from the user input.
  * @author Igor Lückel
@@ -9,9 +11,9 @@ public class DatabaseEntry {
 	private String _userid;
 	private String _date;
 	private String _time;
-	private int _delay;
-	private int _contacts;
-	private int _contacttime;
+	private String _answertime;
+	private String _contacts;
+	private String _contacttime;
 	
 	/**
 	 * @return Returns the UserID (Probandencode)
@@ -21,7 +23,7 @@ public class DatabaseEntry {
 	}
 	
 	/**
-	 * @return Returns the alarmdate with following format: dd.mm.yyyy
+	 * @return Returns the alarmdate with following format: dd.mm.yy
 	 */
 	public String getDate(){
 		return _date;
@@ -35,23 +37,23 @@ public class DatabaseEntry {
 	}
 	
 	/**
-	 * @return Returns the delay between alarm and saving the values in minutes
+	 * @return Returns the time (hh:mm) when the user saved the data
 	 */
-	public int getDelay(){
-		return _delay;
+	public String getAnswertTime(){
+		return _answertime;
 	}
 	
 	/**
 	 * @return Returns the amount of contacts
 	 */
-	public int getContacs(){
+	public String getContacts(){
 		return _contacts;
 	}
 	
 	/**
-	 * @return Returns the amount of time spend with the contacts
+	 * @return Returns the amount of time spend with the contacts in the format hh:mm
 	 */
-	public int getContactTime(){
+	public String getContactTime(){
 		return _contacttime;
 	}
 	
@@ -65,7 +67,7 @@ public class DatabaseEntry {
 	
 	/**
 	 * Sets the alarmdate
-	 * @param value String containing the alarmdate with the format: dd.mm.yyyy
+	 * @param value String containing the alarmdate with the format: dd.mm.yy
 	 */
 	public void setDate(String value){
 		_date=value;
@@ -81,34 +83,61 @@ public class DatabaseEntry {
 	
 	/**
 	 * Sets delay between the actual alarm and the point of saving the data
-	 * @param value Integer containing the amount of minutes
+	 * Set -77 if the user does not anwserd it
+	 * @param value String containing the amount of time spend with the contacts (hh:mm)
 	 */
-	public void setDelay(int value){
-		_delay=value;
+	public void setAnswerTime(String value){
+		_answertime=value;
 	}
 	
 	/**
 	 * Sets the amount of contacts the participant had
-	 * @param value Integer containing the amount of contacts
+	 * Set -77 if the user does not anwserd it
+	 * @param value String containing the amount of contacts
 	 */
-	public void setContacts(int value){
+	public void setContacts(String value){
 		_contacts=value;
 	}
 	
 	/**
 	 * Sets the amount of minutes the participant spend with the contacts
-	 * @param value Integer containing the amount of minutes
+	 * Set -77 if the user does not anwserd it
+	 * @param value String containing the amount of time spend with the contacts (format hh:mm)
 	 */
-	public void setContactTime(int value){
+	public void setContactTime(String value){
 		_contacttime=value;
 	}
 
 	/**
 	 * Use this String in the csv exporter to convert the object into an csv-row
 	 * @return Returns a line containing all values in csv-format
+	 * @throws ParseException Date or time is in the wrong format
 	 */
-	public String toCSV(){
-		return "";
+	public String toCSV() throws ParseException{
+		String id=getUserID();
+		String date=getDate();
+		String time=getTime();
+		String answertime;
+		String abort;
+		String contacts;
+		String contactshour;
+		String contactsmin;
+		
+		if (getAnswertTime() != "-77"){
+			answertime = getAnswertTime();
+			abort="0";
+			contacts = getContacts();
+			contactshour = getContactTime().split(":")[0];
+			contactsmin = getContactTime().split(":")[1];
+		}else{
+			answertime=getAnswertTime();
+			abort="1";
+			contacts=answertime;
+			contactshour=answertime;
+			contactsmin=answertime;
+		}
+	    		
+		return id+";"+date+";"+time+";"+answertime+";"+abort+";"+contacts+";"+contactshour+";"+contactsmin;
 	}
 	
 	/**
@@ -116,6 +145,6 @@ public class DatabaseEntry {
 	 * @return Returns a header line containing all data fields
 	 */
 	public static String csvHeader(){
-		return "";
+		return "Code;Datum;Alarmzeit;Antwortzeit;Abbruch;Kontakte;Stunden;Minuten";
 	}
 }
