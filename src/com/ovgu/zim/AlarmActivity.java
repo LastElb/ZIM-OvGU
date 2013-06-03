@@ -80,8 +80,8 @@ public class AlarmActivity extends SherlockActivity {
 	public void increaseContacts1(View view){
 		EditText textfield = (EditText)findViewById(R.id.EditTextContacts);
 		String number = textfield.getText().toString();
-		int newValue=Integer.parseInt(number)+1;
-		textfield.setText(Integer.toString(newValue));
+		long newValue=Long.parseLong(number)+1;
+		textfield.setText(Long.toString(newValue));
 	}
 	
 	/**
@@ -91,8 +91,8 @@ public class AlarmActivity extends SherlockActivity {
 	public void increaseContacts5(View view){
 		EditText textfield = (EditText)findViewById(R.id.EditTextContacts);
 		String number = textfield.getText().toString();
-		int newValue=Integer.parseInt(number)+5;
-		textfield.setText(Integer.toString(newValue));
+		long newValue=Long.parseLong(number)+5;
+		textfield.setText(Long.toString(newValue));
 	}
 	
 	/**
@@ -102,8 +102,8 @@ public class AlarmActivity extends SherlockActivity {
 	public void increaseContactsTime5(View view){
 		EditText textfield = (EditText)findViewById(R.id.EditTextContactTime);
 		String number = textfield.getText().toString();
-		int newValue=Integer.parseInt(number)+5;
-		textfield.setText(Integer.toString(newValue));
+		long newValue=Long.parseLong(number)+5;
+		textfield.setText(Long.toString(newValue));
 	}
 	
 	/**
@@ -113,8 +113,8 @@ public class AlarmActivity extends SherlockActivity {
 	public void increaseContactsTime15(View view){
 		EditText textfield = (EditText)findViewById(R.id.EditTextContactTime);
 		String number = textfield.getText().toString();
-		int newValue=Integer.parseInt(number)+15;
-		textfield.setText(Integer.toString(newValue));
+		long newValue=Long.parseLong(number)+15;
+		textfield.setText(Long.toString(newValue));
 	}
 
 	/**
@@ -142,12 +142,18 @@ public class AlarmActivity extends SherlockActivity {
     	Calendar inputTime = Calendar.getInstance();
     	inputTime.setTimeInMillis(0);
     	String mininput = textMessage.getText().toString();
+    	boolean istimetobig=false;
     	if (mininput.length()==0)
     		mininput="0";
-    	inputTime.add(Calendar.MINUTE, Integer.parseInt(mininput));
+    	try{
+    		inputTime.add(Calendar.MINUTE, Integer.parseInt(mininput));
+    	}catch (Exception e){
+    		istimetobig=true;
+    	}
+    	
     	
     	TextView warning = (TextView)findViewById(R.id.TextViewWrongTime);
-    	if (inputTime.getTimeInMillis()>difference.getTimeInMillis())
+    	if (inputTime.getTimeInMillis()>difference.getTimeInMillis() || istimetobig==true)
     	{
     		textMessage.setTextColor(Color.RED);
     		warning.setVisibility(TextView.VISIBLE);
