@@ -62,10 +62,6 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 			this.findPreference("WakeTime2").setSummary(changedWakeTime + " " + preferences.getString("WakeTime2", "") + ":00 Uhr");
 			this.findPreference("WakeTime3").setSummary(changedWakeTime + " " + preferences.getString("WakeTime3", "") + ":00 Uhr");
 			this.findPreference("WakeTime4").setSummary(changedWakeTime + " " + preferences.getString("WakeTime4", "") + ":00 Uhr");
-			this.findPreference("WakeTime1").setEnabled(false);
-			this.findPreference("WakeTime2").setEnabled(false);
-			this.findPreference("WakeTime3").setEnabled(false);
-			this.findPreference("WakeTime4").setEnabled(false);
 			_wasblank = false;
 			
 			//Ringtone
@@ -225,12 +221,11 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
         return true;
     }
 	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void onBackPressed() {
-		// If the user presses the backbutton, we delete all settings that were changed
-		// SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-		// preferences.edit().clear().commit();
-		// Toast.makeText(this, "Einstellungen verworfen!", Toast.LENGTH_SHORT).show();
 		if (!_wasblank){
 			finish();
 		}else{

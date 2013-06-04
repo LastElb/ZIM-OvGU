@@ -17,8 +17,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_margin="12dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="6dp"
             android:paddingBottom="12dp"
             android:background="#FFFFFF" >
 
@@ -52,7 +54,7 @@
             android:layout_below="@+id/LayoutNextAlarm"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:layout_marginTop="-12dp"
+            android:layout_marginTop="-6dp"
             android:background="#D4D4D4" />
 
         <RelativeLayout
@@ -61,7 +63,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/LayoutNextAlarm"
-            android:layout_margin="12dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="6dp"
             android:background="#FFFFFF" >
 
             <TextView
@@ -120,7 +125,7 @@
             android:layout_below="@+id/LayoutChangePreferences"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:layout_marginTop="-12dp"
+            android:layout_marginTop="-6dp"
             android:background="#D4D4D4" />
 
         <RelativeLayout
@@ -128,8 +133,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/LayoutChangePreferences"
-            android:layout_margin="12dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="6dp"
             android:background="#FFFFFF" >
 
             <TextView
@@ -187,7 +194,7 @@
             android:layout_below="@+id/LayoutCSVExport"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:layout_marginTop="-12dp"
+            android:layout_marginTop="-6dp"
             android:background="#D4D4D4" />
 
         <RelativeLayout
@@ -195,7 +202,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/LayoutCSVExport"
-            android:layout_margin="12dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="6dp"
             android:background="#FFFFFF" >
 
             <TextView
@@ -254,7 +264,7 @@
             android:layout_below="@+id/LayoutWipe"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:layout_marginTop="-12dp"
+            android:layout_marginTop="-6dp"
             android:background="#D4D4D4" />
 
     </RelativeLayout>

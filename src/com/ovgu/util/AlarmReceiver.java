@@ -37,6 +37,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 		    vibrator.vibrate(1500);
 		}
 		
+		// Play the ringtone sound
 		String alarms = preferences.getString("RingtonePreference", "default ringtone");
 		if (alarms.length()>0){
 			Uri uri = Uri.parse(alarms);

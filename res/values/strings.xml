@@ -54,7 +54,7 @@
     <string name="ContactTimeWrongTime">Die von Ihnen eingegebene Minutenanzahl ist höher als die vergangenen Minuten seit dem letzten Alarm!</string>
 	<string name="zero">0</string>
 	<string name="RelevantIntervalHeader">Betrachtungsintervall</string>
-	<string name="RelevantTimeInterval1">Für die Zählung sind nur Kontakte seit dem letzten Alarm um</string>
+	<string name="RelevantTimeInterval1">Für die Zählung sind nur Kontakte seit der letzten Befragung um</string>
 	<string name="RelevantTimeInterval2">Uhr relevant.</string>
 	<string name="RelevantTimeInterval3">Für die Zählung sind alle Kontakte, die Sie heute hatten, relevant.</string>
 </resources>

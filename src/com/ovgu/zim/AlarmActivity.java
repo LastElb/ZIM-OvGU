@@ -28,8 +28,8 @@ public class AlarmActivity extends SherlockActivity {
 		
 		//Initializes a new instance of the AlarmViewModel and does some startup actions.
 		_viewmodel = new AlarmViewModel(this);
-		_viewmodel.setLastAlarmTimeToUI();
 		_viewmodel.setInternalAlarmTimes();
+		_viewmodel.setLastAlarmTimeToUI();
 		_viewmodel.appendTextListener();
 	}
 
@@ -105,6 +105,18 @@ public class AlarmActivity extends SherlockActivity {
 		String number = textfield.getText().toString();
 		long newValue=Long.parseLong(number)+15;
 		textfield.setText(Long.toString(newValue));
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void onBackPressed() {
+		if (_viewmodel.getIsEnteredTimeCorrect()){
+			_viewmodel.saveAndExit();
+		}else{
+			Toast.makeText(this, "Eingabe überprüfen", Toast.LENGTH_SHORT).show();
+		}
 	}
 	
 }

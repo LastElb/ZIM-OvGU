@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -16,11 +15,17 @@ import android.widget.TextView;
 import com.ovgu.zim.AlarmActivity;
 import com.ovgu.zim.R;
 
+/**
+ * 
+ * @author Igor Lückel
+ *
+ */
 public class AlarmViewModel {
 	private AlarmActivity _parent;
 	private Date currentAlarmTime;
 	private Date lastAlarmTime;
 	private boolean _isTimeCorrect = true;
+	private boolean _isfirstAlarm = false;
 	
 	/**
 	 * Creates a new instance of AlarmViewModel
@@ -40,6 +45,7 @@ public class AlarmViewModel {
 		SharedPreferences settings = _parent.getSharedPreferences("alarmValues", 0);
 		SharedPreferences.Editor editor = settings.edit();
 		
+		// Save the current time for the next alarm
 	    editor.putString("lastSavedAlarm", datetimeformat.format(Calendar.getInstance().getTime()));
 		editor.commit();
 		
@@ -59,14 +65,27 @@ public class AlarmViewModel {
 		
 		data.setContactTime(timeformat.format(contacttime.getTime()));
 		data.setDate(dateformat.format(currentAlarmTime));
+		
+		// Save it to database
+		
+		
+		// Close the activity
+		_parent.finish();
 	}
 	
 	/**
 	 * Displays the last Alarmtime on the first panel on the UI
 	 */
 	public void setLastAlarmTimeToUI(){
-		TextView textfield = (TextView)_parent.findViewById(R.id.EditTextContacts);
-		textfield.setText(_parent.getString(R.string.RelevantTimeInterval1) + " " + _parent.getString(R.string.RelevantTimeInterval2));
+		TextView textfield = (TextView)_parent.findViewById(R.id.TVIntervalDescription);
+		SimpleDateFormat format = new SimpleDateFormat("HH:mm", Locale.getDefault());
+		if (_isfirstAlarm){
+			// Displays a different string than the one with an previous alarm time
+			textfield.setText(_parent.getString(R.string.RelevantTimeInterval3));
+		}else{
+			// Display the last alarm time
+			textfield.setText(_parent.getString(R.string.RelevantTimeInterval1) + " " +format.format(lastAlarmTime)+ " " + _parent.getString(R.string.RelevantTimeInterval2));
+		}
 	}
 	
 	/**
@@ -74,7 +93,7 @@ public class AlarmViewModel {
 	 */
 	public void setInternalAlarmTimes(){
 		Intent i = _parent.getIntent();		
-		SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.getDefault());  
+		SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.getDefault());
 		try {
 			currentAlarmTime = format.parse(i.getStringExtra("currentAlarmTime"));
 		} catch (ParseException e) {
@@ -98,6 +117,7 @@ public class AlarmViewModel {
 			Calendar cal = Calendar.getInstance();
 			cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONDAY), cal.get(Calendar.DAY_OF_MONTH), 0, 0, 0);
 			lastAlarmTime = cal.getTime();
+			_isfirstAlarm = true;
 		}
 	}
 	
@@ -128,19 +148,15 @@ public class AlarmViewModel {
     	Calendar inputTime = Calendar.getInstance();
     	inputTime.setTimeInMillis(0);
     	String mininput = textMessage.getText().toString();
-    	boolean istimetobig=false;
     	if (mininput.length()==0)
     		mininput="0";
-    	try{
-    		inputTime.add(Calendar.MINUTE, Integer.parseInt(mininput));
-    	}catch (Exception e){
-    		istimetobig=true;
-    	}
+    	inputTime.add(Calendar.MINUTE, Integer.parseInt(mininput));
     	
-    	
+    	// Checks if the entered value is valid
     	TextView warning = (TextView)_parent.findViewById(R.id.TextViewWrongTime);
-    	if (inputTime.getTimeInMillis()>difference.getTimeInMillis() || istimetobig==true)
+    	if (inputTime.getTimeInMillis()>difference.getTimeInMillis())
     	{
+    		// Makes the warning visible
     		textMessage.setTextColor(Color.RED);
     		warning.setVisibility(TextView.VISIBLE);
     		_isTimeCorrect = false;
