@@ -52,4 +52,8 @@
     <string name="ContactTime5">+5 Minuten</string>
     <string name="ContactTime15">+15 Minuten</string>
 	<string name="zero">0</string>
+	<string name="RelevantIntervalHeader">Betrachtungsintervall</string>
+	<string name="RelevantTimeInterval1">Für die Zählung sind nur Kontakte seit dem letzten Alarm um</string>
+	<string name="RelevantTimeInterval2">Uhr relevant.</string>
+	<string name="RelevantTimeInterval3">Für die Zählung sind alle Kontakte, die Sie heute hatten, relevant.</string>
 </resources>

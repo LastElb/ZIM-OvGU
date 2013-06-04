@@ -60,6 +60,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 	    mBuilder.setAutoCancel(true);
 	    NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 	    int mId=1000;
+	    
 		// mId allows you to update the notification later on.
 	    mNotificationManager.notify(mId, mBuilder.build());
 	}

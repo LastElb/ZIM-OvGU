@@ -3,6 +3,8 @@ package com.ovgu.zim;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.ovgu.util.AlarmViewModel;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -14,6 +16,8 @@ import android.widget.EditText;
  */
 public class AlarmActivity extends SherlockActivity {
 	
+	private AlarmViewModel _viewmodel;
+	
 	/**
      * {@inheritDoc}
      */
@@ -21,6 +25,8 @@ public class AlarmActivity extends SherlockActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_alarm);
+		_viewmodel = new AlarmViewModel(this);
+		_viewmodel.setLastAlarmTimeToUI();
 	}
 
 	/**
@@ -45,7 +51,7 @@ public class AlarmActivity extends SherlockActivity {
         // complete functionality of the menu item.
 		// ---
 		// We have to ensure that the minutes inserted in the textbox are not more than the actually time left since the last alarm.
-        
+        _viewmodel.saveAndExit();
         return true;
     }
 	
