@@ -85,6 +85,10 @@ public class MainActivity extends SherlockActivity {
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		// comment the next line if you want to keep the user preferences
 		preferences.edit().clear().commit();
+		
+		SharedPreferences settings = getSharedPreferences("alarmValues", 0);
+		settings.edit().clear().commit();
+		
 		AlarmSetter as = new AlarmSetter();
 		as.deleteAlarms(this);
 		Toast.makeText(this, "Preferences wiped", Toast.LENGTH_SHORT).show();

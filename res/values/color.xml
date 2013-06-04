@@ -14,4 +14,5 @@
  <color name="cachecolor">#8ad0e8</color>
  <color name="link_blue_background">#5CC4E9</color>
  <color name="orangeOvGU">#EF7C00</color>
+ <color name="red">#FF0000</color>
 </resources>

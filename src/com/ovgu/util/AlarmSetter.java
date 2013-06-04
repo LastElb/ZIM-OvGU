@@ -34,10 +34,10 @@ public class AlarmSetter {
 		Intent i4 = new Intent("com.ovgu.zim.AlarmActivity");
 		i4.putExtra("alarmtime", Integer.toString(alarm4));
 		
-	    PendingIntent pendingIntent1 = PendingIntent.getBroadcast(View.getApplicationContext(), 8601, i1, PendingIntent.FLAG_ONE_SHOT);
-	    PendingIntent pendingIntent2 = PendingIntent.getBroadcast(View.getApplicationContext(), 8602, i2, PendingIntent.FLAG_ONE_SHOT);
-	    PendingIntent pendingIntent3 = PendingIntent.getBroadcast(View.getApplicationContext(), 8603, i3, PendingIntent.FLAG_ONE_SHOT);
-	    PendingIntent pendingIntent4 = PendingIntent.getBroadcast(View.getApplicationContext(), 8604, i4, PendingIntent.FLAG_ONE_SHOT);
+	    PendingIntent pendingIntent1 = PendingIntent.getBroadcast(View.getApplicationContext(), 8601, i1, PendingIntent.FLAG_UPDATE_CURRENT);
+	    PendingIntent pendingIntent2 = PendingIntent.getBroadcast(View.getApplicationContext(), 8602, i2, PendingIntent.FLAG_UPDATE_CURRENT);
+	    PendingIntent pendingIntent3 = PendingIntent.getBroadcast(View.getApplicationContext(), 8603, i3, PendingIntent.FLAG_UPDATE_CURRENT);
+	    PendingIntent pendingIntent4 = PendingIntent.getBroadcast(View.getApplicationContext(), 8604, i4, PendingIntent.FLAG_UPDATE_CURRENT);
 	    
 	    AlarmManager alarmManager = (AlarmManager) View.getSystemService(Activity.ALARM_SERVICE);
 	    

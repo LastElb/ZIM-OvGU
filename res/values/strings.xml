@@ -51,6 +51,7 @@
     <string name="ContactTimeDescription">Geben Sie an, wie viele Minuten Sie mit den sozialen Kontakten verbracht haben.</string>
     <string name="ContactTime5">+5 Minuten</string>
     <string name="ContactTime15">+15 Minuten</string>
+    <string name="ContactTimeWrongTime">Die von Ihnen eingegebene Minutenanzahl ist höher als die vergangenen Minuten seit dem letzten Alarm!</string>
 	<string name="zero">0</string>
 	<string name="RelevantIntervalHeader">Betrachtungsintervall</string>
 	<string name="RelevantTimeInterval1">Für die Zählung sind nur Kontakte seit dem letzten Alarm um</string>
