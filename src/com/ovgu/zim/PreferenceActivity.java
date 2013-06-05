@@ -227,6 +227,15 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 	@Override
 	public void onBackPressed() {
 		if (!_wasblank){
+			int nextAlarm = AlarmSetter.nextAlarmHour(this);
+    		AlarmSetter as = new AlarmSetter();
+    		
+    		if (nextAlarm != -1){
+    			as.setAlarms(this);
+    		}else{
+    			as.deleteAlarms(this);
+    		}
+    		
 			finish();
 		}else{
 			Toast.makeText(this, "Benutzen Sie den Speichern-Button!", Toast.LENGTH_SHORT).show();

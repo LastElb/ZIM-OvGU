@@ -50,7 +50,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 	    NotificationCompat.Builder mBuilder =
 	            new NotificationCompat.Builder(context)
 	            .setSmallIcon(R.drawable.ic_social_group)
-	            .setContentTitle("ZIM-Wecker")
+	            .setContentTitle("ZIM-Alarm")
 	            .setContentText("Auswertung der sozialen Kontakte nötig!");
 	    
 	    // Android 2.x has normally a light taskbar. And the icon set previous is also light. So we are changing it here to a dark version if needed
