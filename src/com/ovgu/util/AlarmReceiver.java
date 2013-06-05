@@ -30,16 +30,19 @@ public class AlarmReceiver extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
+		// Get the audio service to determine the current sound mode (normal, vibration only, silent)
+		AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+				
 		// Vibrate the mobile phone
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-		if (preferences.getBoolean("CheckBoxVibration", false) == true){
+		if (preferences.getBoolean("CheckBoxVibration", false) == true && audioManager.getRingerMode() != AudioManager.RINGER_MODE_SILENT){
 			Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
 		    vibrator.vibrate(1500);
 		}
 		
-		// Play the ringtone sound
+		// Play the ringtone sound when the sound mode is set to normal
 		String alarms = preferences.getString("RingtonePreference", "default ringtone");
-		if (alarms.length()>0){
+		if (alarms.length()>0 && audioManager.getRingerMode() == AudioManager.RINGER_MODE_NORMAL){
 			Uri uri = Uri.parse(alarms);
 		    playSound(context, uri);
 		}
