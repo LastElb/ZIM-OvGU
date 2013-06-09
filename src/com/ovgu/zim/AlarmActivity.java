@@ -5,9 +5,11 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.ovgu.util.*;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -31,6 +33,13 @@ public class AlarmActivity extends SherlockActivity {
 		_viewmodel.setInternalAlarmTimes();
 		_viewmodel.setLastAlarmTimeToUI();
 		_viewmodel.appendTextListener();
+		
+		// We want to display the next alarm time to the user. As extra information
+		int nextAlarm = AlarmSetter.nextAlarmHour(this);
+		TextView textview = (TextView) findViewById(R.id.TextViewNextAlarmDescription);
+		textview.setText(this.getString(R.string.NextAlarmP1) + " "
+				+ Integer.toString(nextAlarm)
+				+ this.getString(R.string.NextAlarmP2));
 	}
 
 	/**

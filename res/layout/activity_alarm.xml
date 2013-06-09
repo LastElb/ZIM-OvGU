@@ -279,6 +279,51 @@
             android:layout_marginTop="-6dp"
             android:background="#D4D4D4" />
         
+		<RelativeLayout
+            android:id="@+id/LayoutNextAlarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/LayoutAmountTime"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:background="#FFFFFF"
+            android:paddingBottom="12dp">
+		    
+		    <TextView
+                android:id="@+id/TextViewNextAlarmHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/TextViewNextAlarmDescription"
+                android:layout_marginTop="10dp"
+                android:text="@string/NextAlarmHeader"
+                android:textColor="#707070"
+                android:textSize="28sp"
+                android:typeface="normal" />
+
+            <TextView
+                android:id="@+id/TextViewNextAlarmDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TextViewNextAlarmHeader"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/NextAlarmNotSet"
+                android:textColor="#707070" />
+            
+		</RelativeLayout>
+        <View
+            android:id="@+id/View7"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/LayoutNextAlarm"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="-6dp"
+            android:background="#D4D4D4" />
 
     </RelativeLayout>
 
