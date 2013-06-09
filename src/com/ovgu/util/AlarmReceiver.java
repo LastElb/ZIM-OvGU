@@ -22,12 +22,15 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 
 /**
- * 
+ * This class gets called if an alarm occures. It plays a sound or vibrates (depends on user preferences) and creates a new notification with
  * @author Igor Lückel
  *
  */
 public class AlarmReceiver extends BroadcastReceiver {
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		// Get the audio service to determine the current sound mode (normal, vibration only, silent)
@@ -47,6 +50,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 		    playSound(context, uri);
 		}
 	    
+		// Creates a new notification
 	    NotificationCompat.Builder mBuilder =
 	            new NotificationCompat.Builder(context)
 	            .setSmallIcon(R.drawable.ic_social_group)

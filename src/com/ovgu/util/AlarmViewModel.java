@@ -167,6 +167,11 @@ public class AlarmViewModel {
     	}
 	}
 
+	/**
+	 * This boolean indicates if the entered time is valid.
+	 * It's valid if the value is not greater than difference between now and the last alarm time
+	 * @return True if the value is valid
+	 */
 	public boolean getIsEnteredTimeCorrect(){
 		return _isTimeCorrect;
 	}

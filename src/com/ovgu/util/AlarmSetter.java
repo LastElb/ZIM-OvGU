@@ -15,6 +15,11 @@ import android.preference.PreferenceManager;
  *
  */
 public class AlarmSetter {
+	
+	/**
+	 * Sets all alarms based on the user input on the preference page
+	 * @param View
+	 */
 	public void setAlarms(Context View){
 	    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(View);
 	    int alarm1=Integer.parseInt(preferences.getString("WakeTime1", "-1"));
@@ -42,8 +47,10 @@ public class AlarmSetter {
 	    AlarmManager alarmManager = (AlarmManager) View.getSystemService(Activity.ALARM_SERVICE);
 	    
 	    Calendar cal1 = Calendar.getInstance();
+	    
 	    // This sets the alarm to the next day, if the alarm hour already left today.
 	    // Without this, the past alarms will be also broadcasted
+	    
 	    if (cal1.get(Calendar.HOUR_OF_DAY) >= alarm1)
 	    	cal1.add(Calendar.DATE, 1);
 	    cal1.set(cal1.get(Calendar.YEAR), cal1.get(Calendar.MONTH), cal1.get(Calendar.DAY_OF_MONTH), alarm1, 0);
@@ -69,6 +76,11 @@ public class AlarmSetter {
 	    alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, cal4.getTimeInMillis(),  AlarmManager.INTERVAL_DAY, pendingIntent4);
 	}
 	
+	/**
+	 * This function returns an integer with the hour-value (24h based) of the next alarm.
+	 * @param context
+	 * @return Returns the next alarm hour (24h based)
+	 */
 	public static int nextAlarmHour(Context context){
 		Calendar cal = Calendar.getInstance();
 		int currenthour = cal.get(Calendar.HOUR_OF_DAY);
@@ -93,8 +105,13 @@ public class AlarmSetter {
 		return -1;
 	}
 	
+	/**
+	 * Cancels all alarms. Use this if you want to reset the app
+	 * @param View
+	 */
 	public void deleteAlarms(Context View){
 		Intent i = new Intent("com.ovgu.zim.AlarmActivity");
+		// Pending Intents are recognized by their ID (here from up to 8601)
 	    PendingIntent pendingIntent1 = PendingIntent.getBroadcast(View.getApplicationContext(), 8601, i, PendingIntent.FLAG_ONE_SHOT);
 	    PendingIntent pendingIntent2 = PendingIntent.getBroadcast(View.getApplicationContext(), 8602, i, PendingIntent.FLAG_ONE_SHOT);
 	    PendingIntent pendingIntent3 = PendingIntent.getBroadcast(View.getApplicationContext(), 8603, i, PendingIntent.FLAG_ONE_SHOT);
