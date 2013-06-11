@@ -90,6 +90,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
                     _isIDSet=true;
                     return true;
             	}
+            	Toast.makeText(getApplicationContext(), "Der Probandencode entspricht nicht den Anforderungen", Toast.LENGTH_SHORT).show();
             	_isIDSet=false;
                 return false;
             }
