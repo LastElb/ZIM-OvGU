@@ -112,10 +112,10 @@ public class AlarmSetter {
 	public void deleteAlarms(Context View){
 		Intent i = new Intent("com.ovgu.zim.AlarmActivity");
 		// Pending Intents are recognized by their ID (from up to 8601)
-	    PendingIntent pendingIntent1 = PendingIntent.getBroadcast(View.getApplicationContext(), 8601, i, PendingIntent.FLAG_ONE_SHOT);
-	    PendingIntent pendingIntent2 = PendingIntent.getBroadcast(View.getApplicationContext(), 8602, i, PendingIntent.FLAG_ONE_SHOT);
-	    PendingIntent pendingIntent3 = PendingIntent.getBroadcast(View.getApplicationContext(), 8603, i, PendingIntent.FLAG_ONE_SHOT);
-	    PendingIntent pendingIntent4 = PendingIntent.getBroadcast(View.getApplicationContext(), 8604, i, PendingIntent.FLAG_ONE_SHOT);
+	    PendingIntent pendingIntent1 = PendingIntent.getBroadcast(View.getApplicationContext(), 8601, i, PendingIntent.FLAG_UPDATE_CURRENT);
+	    PendingIntent pendingIntent2 = PendingIntent.getBroadcast(View.getApplicationContext(), 8602, i, PendingIntent.FLAG_UPDATE_CURRENT);
+	    PendingIntent pendingIntent3 = PendingIntent.getBroadcast(View.getApplicationContext(), 8603, i, PendingIntent.FLAG_UPDATE_CURRENT);
+	    PendingIntent pendingIntent4 = PendingIntent.getBroadcast(View.getApplicationContext(), 8604, i, PendingIntent.FLAG_UPDATE_CURRENT);
 	    
 	    AlarmManager alarmManager = (AlarmManager) View.getSystemService(Activity.ALARM_SERVICE);
 	    alarmManager.cancel(pendingIntent1);
