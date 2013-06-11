@@ -39,7 +39,7 @@ public class DatabaseEntry {
 	/**
 	 * @return Returns the time (hh:mm) when the user saved the data
 	 */
-	public String getAnswertTime(){
+	public String getAnswerTime(){
 		return _answertime;
 	}
 	
@@ -113,7 +113,7 @@ public class DatabaseEntry {
 	 * @return Returns a line containing all values in csv-format
 	 * @throws ParseException Date or time is in the wrong format
 	 */
-	public String toCSV() throws ParseException{
+	public String toCSV(){
 		String id=getUserID();
 		String date=getDate();
 		String time=getTime();
@@ -123,14 +123,14 @@ public class DatabaseEntry {
 		String contactshour;
 		String contactsmin;
 		
-		if (getAnswertTime() != "-77"){
-			answertime = getAnswertTime();
+		if (!getAnswerTime().equals("-77")){
+			answertime = getAnswerTime();
 			abort="0";
 			contacts = getContacts();
 			contactshour = getContactTime().split(":")[0];
 			contactsmin = getContactTime().split(":")[1];
 		}else{
-			answertime=getAnswertTime();
+			answertime=getAnswerTime();
 			abort="1";
 			contacts=answertime;
 			contactshour=answertime;

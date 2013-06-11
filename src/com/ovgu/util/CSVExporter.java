@@ -1,25 +1,32 @@
 package com.ovgu.util;
 
 import java.io.*;
+
+import com.ovgu.jsondb.JSONConnector;
+
+import android.content.Context;
 import android.os.Environment;
 
 public class CSVExporter {
-	public void exportAsCsv() throws IOException {
+	public void exportAsCsv(Context context) {
 		String columnString = DatabaseEntry.csvHeader();
 		String combinedString = columnString + "\n";
 
-		// for (DatabaseEntry item : SQLiteConnector.getAllEntries())
-		// combinedString = combinedString + item.toCSV() + "\n";
+		for (DatabaseEntry item : JSONConnector.getAllEntries(context))
+			combinedString = combinedString + item.toCSV() + "\n";
 
 		File file = null;
 		File root = Environment.getExternalStorageDirectory();
 		if (root.canWrite()) {
 			File dir = new File(root.getAbsolutePath() + "/ZIM");
 			dir.mkdirs();
-			file = new File(dir, "Data.csv");
+			
+			
+			
+			file = new File(dir, ".csv");
 			FileOutputStream out = null;
 			try {
-				out = new FileOutputStream(file);
+				out = new FileOutputStream(file, false);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
