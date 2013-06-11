@@ -80,7 +80,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
             	//Delete whitespace
-            	newValue=newValue.toString().toLowerCase(Locale.GERMAN).trim();
+            	newValue = newValue.toString().toLowerCase(Locale.GERMAN).trim();
             	//Create a regex
             	Pattern p = Pattern.compile("((?:[a-ü][a-ü]+))",Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
                 Matcher m = p.matcher(newValue.toString());
@@ -213,6 +213,10 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
     		}else{
     			as.deleteAlarms(this);
     		}
+    		
+    		// We want a string without whitespace on the start and end
+    		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+    		preferences.edit().putString("preferenceUserID", preferences.getString("preferenceUserID", "").trim()).commit();
     		
         	finish();
         }else{
