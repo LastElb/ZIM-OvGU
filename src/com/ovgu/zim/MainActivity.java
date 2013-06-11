@@ -13,6 +13,7 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
+import com.ovgu.jsondb.JSONConnector;
 import com.ovgu.util.*;
 
 /**
@@ -91,7 +92,15 @@ public class MainActivity extends SherlockActivity {
 		
 		AlarmSetter as = new AlarmSetter();
 		as.deleteAlarms(this);
+		
+		JSONConnector.deleteEntries(this);
+		
 		Toast.makeText(this, "Preferences wiped", Toast.LENGTH_SHORT).show();
 		onResume();
+	}
+	
+	public void exportToCSV(View view){
+		CSVExporter export = new CSVExporter();
+		export.exportAsCsv(this);
 	}
 }

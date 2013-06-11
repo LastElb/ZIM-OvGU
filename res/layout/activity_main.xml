@@ -179,6 +179,7 @@
                 android:layout_below="@+id/View02"
                 android:layout_centerHorizontal="true"
                 android:background="@color/linkcolor"
+                android:onClick="exportToCSV"
                 android:clickable="true"
                 android:gravity="center"
                 android:paddingBottom="12dp"

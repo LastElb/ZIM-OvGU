@@ -8,10 +8,13 @@ import java.util.Locale;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.ovgu.jsondb.JSONConnector;
 import com.ovgu.zim.AlarmActivity;
 import com.ovgu.zim.R;
 
@@ -39,14 +42,16 @@ public class AlarmViewModel {
 	 * Creates a instance of DatabaseEntry and saves it directly to the database
 	 */
 	public void saveAndExit(){
-		SimpleDateFormat datetimeformat = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.getDefault());
-		SimpleDateFormat dateformat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+		SimpleDateFormat datetimeformat = new SimpleDateFormat("dd.MM.yy HH:mm", Locale.getDefault());
+		SimpleDateFormat dateformat = new SimpleDateFormat("dd.MM.yy", Locale.getDefault());
 		SimpleDateFormat timeformat = new SimpleDateFormat("HH:mm", Locale.getDefault());  
 		SharedPreferences settings = _parent.getSharedPreferences("alarmValues", 0);
 		SharedPreferences.Editor editor = settings.edit();
+		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(_parent);
 		
 		// Save the current time for the next alarm
 	    editor.putString("lastSavedAlarm", datetimeformat.format(Calendar.getInstance().getTime()));
+	    editor.putString("lastAnsweredAlarm", datetimeformat.format(currentAlarmTime.getTime()));
 		editor.commit();
 		
 		EditText et = (EditText)_parent.findViewById(R.id.EditTextContacts);
@@ -54,7 +59,7 @@ public class AlarmViewModel {
 		DatabaseEntry data = new DatabaseEntry();
 		data.setAnswerTime(timeformat.format(Calendar.getInstance().getTime()));
 		data.setTime(timeformat.format(currentAlarmTime));
-		data.setUserID("");
+		data.setUserID(preferences.getString("preferenceUserID", ""));
 		data.setContacts(et.getText().toString());
 		
 		// Transform the minutes into the format hh:mm
@@ -67,7 +72,7 @@ public class AlarmViewModel {
 		data.setDate(dateformat.format(currentAlarmTime));
 		
 		// Save it to database
-		
+		JSONConnector.addEntry(data, _parent.getApplicationContext());
 		
 		// Close the activity
 		_parent.finish();

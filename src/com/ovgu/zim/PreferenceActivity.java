@@ -216,7 +216,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
     		
     		// We want a string without whitespace on the start and end
     		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-    		preferences.edit().putString("preferenceUserID", preferences.getString("preferenceUserID", "").trim()).commit();
+    		preferences.edit().putString("preferenceUserID", preferences.getString("preferenceUserID", "").trim().toLowerCase(Locale.GERMAN)).commit();
     		
         	finish();
         }else{

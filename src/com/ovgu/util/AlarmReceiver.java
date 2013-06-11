@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
+import com.ovgu.jsondb.JSONConnector;
 import com.ovgu.zim.AlarmActivity;
 import com.ovgu.zim.R;
 
@@ -62,7 +63,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 	    	mBuilder.setSmallIcon(R.drawable.ic_social_group_dark);
 	    }
 	    
-	    SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.getDefault());  
+	    SimpleDateFormat format = new SimpleDateFormat("dd.MM.yy HH:mm", Locale.getDefault());
 	    Calendar now = Calendar.getInstance();
 	    
 	    // Creates an explicit intent for an Activity in your app
@@ -77,8 +78,20 @@ public class AlarmReceiver extends BroadcastReceiver {
 	    editor.putString("currentAlarmTime", format.format(now.getTime()));
 		editor.commit();
 	    
-		if (settings.getString("lastSavedAlarm", "") != settings.getString("lastAlarmTime", "")){
+		String lastSavedAlarm=settings.getString("lastSavedAlarm", "");
+		String lastAnsweredAlarm=settings.getString("lastAnsweredAlarm", "");
+		
+		if (lastSavedAlarm != lastAnsweredAlarm){
 	    	// The last event was not saved. Save the object with the -77's here
+			
+			DatabaseEntry data = new DatabaseEntry();
+			data.setContacts("-77");
+			data.setContactTime("-77");
+			data.setAnswerTime("-77");
+			data.setDate(settings.getString("lastAlarmTime", "").split(" ")[0]);
+			data.setTime(settings.getString("lastAlarmTime", "").split(" ")[1]);
+			data.setUserID(preferences.getString("preferenceUserID", ""));
+			JSONConnector.addEntry(data, context);
 	    }
 		
 	    PendingIntent resultPendingIntent = PendingIntent.getActivity(context, 0, resultIntent, 0);
