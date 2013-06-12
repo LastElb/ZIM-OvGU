@@ -83,7 +83,8 @@ public class MainActivity extends SherlockActivity {
 	}
 	
 	/**
-	 * Wipes the userdata
+	 * Shows an dialoge with password box. If the password is correct, wipeData() gets called. Else a toast is shown.
+	 * @param view
 	 */
 	public void wipeData(View view){
 		final AlertDialog.Builder alert = new AlertDialog.Builder(this);
@@ -119,6 +120,9 @@ public class MainActivity extends SherlockActivity {
 		alert.show();
 	}
 	
+	/**
+	 * Wipes the userdata
+	 */
 	private void wipeData(){
 		//Check the user preferences (alarmtime,...)
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
