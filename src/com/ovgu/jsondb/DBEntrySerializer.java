@@ -16,7 +16,7 @@ public class DBEntrySerializer implements JsonSerializer<DatabaseEntry> {
         result.add("time", new JsonPrimitive(src.getTime()));
         result.add("answertime", new JsonPrimitive(src.getAnswerTime()));
         result.add("contactcount", new JsonPrimitive(src.getContacts()));
-        result.add("contacttime", new JsonPrimitive(src.getAnswerTime()));
+        result.add("contacttime", new JsonPrimitive(src.getContactTime()));
         return result;
 	}
 
