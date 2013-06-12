@@ -35,7 +35,7 @@
     <string name="NextAlarmNotSet">Es wurden noch keine Alarmzeiten gesetzt.</string>
     <string name="NextAlarmHeader">Nächster Alarm</string>
     <string name="SettingsHeader">Einstellungen</string>
-    <string name="SettingsDescription">Stellen Sie Ihren Probandencode, Alarmzeiten und Alarmtyp ein. Der Probandencode und die Alarmzeit können danach nicht mehr verändert werden!</string>
+    <string name="SettingsDescription">Stellen Sie Ihren Probandencode, Alarmzeiten und Alarmtyp ein. Der Probandencode kann danach nicht mehr verändert werden!</string>
     <string name="SettingsButtonText">Einstellungen ändern</string>
     <string name="CSVHeader">CSV-Export</string>
     <string name="CSVDescription">Sichern Sie die gespeicherten Datensätze im CSV-Format auf dem öffentlichen Telefonspeicher.</string>

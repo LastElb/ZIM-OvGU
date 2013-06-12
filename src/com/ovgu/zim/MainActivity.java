@@ -1,11 +1,15 @@
 package com.ovgu.zim;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.InputType;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -82,6 +86,40 @@ public class MainActivity extends SherlockActivity {
 	 * Wipes the userdata
 	 */
 	public void wipeData(View view){
+		final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+		final EditText input = new EditText(this);
+
+		input.setInputType(InputType.TYPE_CLASS_TEXT| InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
+		alert.setView(input);    //edit text added to alert
+		alert.setTitle("Passwortgeschützte Funktion");   //title setted
+
+		// Cancel-button
+		alert.setNegativeButton(android.R.string.cancel,
+				new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.cancel();
+					}
+				});
+		// Ok button: Check the pw
+		alert.setPositiveButton(android.R.string.ok,
+				new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						if (input.getText().toString()=="adminadmin123"){
+							wipeData();
+						}else{
+							Toast.makeText(getApplicationContext(), "Falsches Passwort", Toast.LENGTH_SHORT).show();
+						}
+						dialog.cancel();
+					}
+				});
+		
+		alert.show();
+	}
+	
+	private void wipeData(){
 		//Check the user preferences (alarmtime,...)
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		// comment the next line if you want to keep the user preferences
@@ -95,7 +133,7 @@ public class MainActivity extends SherlockActivity {
 		
 		JSONConnector.deleteEntries(this);
 		
-		Toast.makeText(this, "Preferences wiped", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "App zurückgesetzt", Toast.LENGTH_SHORT).show();
 		onResume();
 	}
 	
