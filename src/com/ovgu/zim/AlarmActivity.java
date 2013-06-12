@@ -79,7 +79,12 @@ public class AlarmActivity extends SherlockActivity {
 	public void increaseContacts1(View view){
 		EditText textfield = (EditText)findViewById(R.id.EditTextContacts);
 		String number = textfield.getText().toString();
-		long newValue=Long.parseLong(number)+1;
+		long newValue;
+		try{
+			 newValue = Long.parseLong(number) + 1;
+		}catch(Exception e){
+			newValue = 1;
+		}
 		textfield.setText(Long.toString(newValue));
 	}
 	
@@ -90,7 +95,12 @@ public class AlarmActivity extends SherlockActivity {
 	public void increaseContacts5(View view){
 		EditText textfield = (EditText)findViewById(R.id.EditTextContacts);
 		String number = textfield.getText().toString();
-		long newValue=Long.parseLong(number)+5;
+		long newValue;
+		try{
+			 newValue = Long.parseLong(number) + 5;
+		}catch(Exception e){
+			newValue = 5;
+		}
 		textfield.setText(Long.toString(newValue));
 	}
 	
@@ -101,7 +111,12 @@ public class AlarmActivity extends SherlockActivity {
 	public void increaseContactsTime5(View view){
 		EditText textfield = (EditText)findViewById(R.id.EditTextContactTime);
 		String number = textfield.getText().toString();
-		long newValue=Long.parseLong(number)+5;
+		long newValue;
+		try{
+			 newValue = Long.parseLong(number) + 5;
+		}catch(Exception e){
+			newValue = 5;
+		}
 		textfield.setText(Long.toString(newValue));
 	}
 	
@@ -112,7 +127,12 @@ public class AlarmActivity extends SherlockActivity {
 	public void increaseContactsTime15(View view){
 		EditText textfield = (EditText)findViewById(R.id.EditTextContactTime);
 		String number = textfield.getText().toString();
-		long newValue=Long.parseLong(number)+15;
+		long newValue;
+		try{
+			 newValue = Long.parseLong(number) + 15;
+		}catch(Exception e){
+			newValue = 15;
+		}
 		textfield.setText(Long.toString(newValue));
 	}
 	

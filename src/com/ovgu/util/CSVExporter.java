@@ -21,9 +21,7 @@ public class CSVExporter {
 			File dir = new File(root.getAbsolutePath() + "/ZIM");
 			dir.mkdirs();
 			
-			
-			
-			file = new File(dir, ".csv");
+			file = new File(dir, "Probandencode.csv");
 			FileOutputStream out = null;
 			try {
 				out = new FileOutputStream(file, false);

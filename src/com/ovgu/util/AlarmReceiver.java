@@ -72,25 +72,21 @@ public class AlarmReceiver extends BroadcastReceiver {
 	    resultIntent.putExtra("currentAlarmTime", alarmExtra);
 	    
 	    // Set the last Alarm
-	    SharedPreferences settings = context.getSharedPreferences("alarmValues", 0);
-	    SharedPreferences.Editor editor = settings.edit();
-	    editor.putString("lastAlarmTime", settings.getString("currentAlarmTime",""));
-	    editor.putString("currentAlarmTime", format.format(now.getTime()));
-		editor.commit();
+	    ApplicationValues.setLastAlarmTime(ApplicationValues.getCurrentAlarmTime(context), context);
+	    ApplicationValues.setCurrentAlarmTime(format.format(now.getTime()), context);
 	    
-		String lastSavedAlarm=settings.getString("lastSavedAlarm", "");
-		String lastAnsweredAlarm=settings.getString("lastAnsweredAlarm", "");
+		String lastAlarmTime=ApplicationValues.getLastAlarmTime(context);
+		String lastAnsweredAlarm=ApplicationValues.getLastSavedAlarmTime(context);
 		
-		if (lastSavedAlarm != lastAnsweredAlarm){
+		if (lastAlarmTime != lastAnsweredAlarm){
 	    	// The last event was not saved. Save the object with the -77's here
-			
 			DatabaseEntry data = new DatabaseEntry();
 			data.setContacts("-77");
 			data.setContactTime("-77");
 			data.setAnswerTime("-77");
-			data.setDate(settings.getString("lastAlarmTime", "").split(" ")[0]);
-			data.setTime(settings.getString("lastAlarmTime", "").split(" ")[1]);
-			data.setUserID(preferences.getString("preferenceUserID", ""));
+			data.setDate(lastAlarmTime.split(" ")[0]);
+			data.setTime(lastAlarmTime.split(" ")[1]);
+			data.setUserID(ApplicationValues.getUserID(context));
 			JSONConnector.addEntry(data, context);
 	    }
 		

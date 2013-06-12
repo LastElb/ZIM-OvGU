@@ -6,9 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
@@ -26,7 +24,7 @@ import com.ovgu.zim.R;
 public class AlarmViewModel {
 	private AlarmActivity _parent;
 	private Date currentAlarmTime;
-	private Date lastAlarmTime;
+	private Date lastAnsweredAlarmTime;
 	private boolean _isTimeCorrect = true;
 	private boolean _isfirstAlarm = false;
 	
@@ -45,21 +43,17 @@ public class AlarmViewModel {
 		SimpleDateFormat datetimeformat = new SimpleDateFormat("dd.MM.yy HH:mm", Locale.getDefault());
 		SimpleDateFormat dateformat = new SimpleDateFormat("dd.MM.yy", Locale.getDefault());
 		SimpleDateFormat timeformat = new SimpleDateFormat("HH:mm", Locale.getDefault());  
-		SharedPreferences settings = _parent.getSharedPreferences("alarmValues", 0);
-		SharedPreferences.Editor editor = settings.edit();
-		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(_parent);
 		
 		// Save the current time for the next alarm
-	    editor.putString("lastSavedAlarm", datetimeformat.format(Calendar.getInstance().getTime()));
-	    editor.putString("lastAnsweredAlarm", datetimeformat.format(currentAlarmTime.getTime()));
-		editor.commit();
+		ApplicationValues.setLastSavedAlarmTime(datetimeformat.format(currentAlarmTime.getTime()), _parent);
+		ApplicationValues.setLastAnswerTime(datetimeformat.format(Calendar.getInstance().getTime()), _parent);
 		
 		EditText et = (EditText)_parent.findViewById(R.id.EditTextContacts);
 		
 		DatabaseEntry data = new DatabaseEntry();
 		data.setAnswerTime(timeformat.format(Calendar.getInstance().getTime()));
 		data.setTime(timeformat.format(currentAlarmTime));
-		data.setUserID(preferences.getString("preferenceUserID", ""));
+		data.setUserID(ApplicationValues.getUserID(_parent));
 		data.setContacts(et.getText().toString());
 		
 		// Transform the minutes into the format hh:mm
@@ -89,7 +83,7 @@ public class AlarmViewModel {
 			textfield.setText(_parent.getString(R.string.RelevantTimeInterval3));
 		}else{
 			// Display the last alarm time
-			textfield.setText(_parent.getString(R.string.RelevantTimeInterval1) + " " +format.format(lastAlarmTime)+ " " + _parent.getString(R.string.RelevantTimeInterval2));
+			textfield.setText(_parent.getString(R.string.RelevantTimeInterval1) + " " +format.format(lastAnsweredAlarmTime)+ " " + _parent.getString(R.string.RelevantTimeInterval2));
 		}
 	}
 	
@@ -98,7 +92,7 @@ public class AlarmViewModel {
 	 */
 	public void setInternalAlarmTimes(){
 		Intent i = _parent.getIntent();		
-		SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm", Locale.getDefault());
+		SimpleDateFormat format = new SimpleDateFormat("dd.MM.yy HH:mm", Locale.getDefault());
 		try {
 			currentAlarmTime = format.parse(i.getStringExtra("currentAlarmTime"));
 		} catch (ParseException e) {
@@ -107,21 +101,20 @@ public class AlarmViewModel {
 		    e.printStackTrace();
 		}
 		
-		SharedPreferences settings = _parent.getSharedPreferences("alarmValues", 0);
-		if (settings.getString("lastSavedAlarm", "").length()>0){
+		if (ApplicationValues.getLastAnswerTime(_parent).length()>0){
 			try {
-				lastAlarmTime = format.parse(settings.getString("lastSavedAlarm", ""));
+				lastAnsweredAlarmTime = format.parse(ApplicationValues.getLastAnswerTime(_parent));
 			} catch (ParseException e) {
 				// A parsing error appeared. We set the time to midnight.
 				Calendar cal = Calendar.getInstance();
 				cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONDAY), cal.get(Calendar.DAY_OF_MONTH), 0, 0, 0);
-				lastAlarmTime = cal.getTime();
+				lastAnsweredAlarmTime = cal.getTime();
 			}
 		}else{
 			// No previous alarms aka the first alarm. We set the time to midnight.
 			Calendar cal = Calendar.getInstance();
 			cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONDAY), cal.get(Calendar.DAY_OF_MONTH), 0, 0, 0);
-			lastAlarmTime = cal.getTime();
+			lastAnsweredAlarmTime = cal.getTime();
 			_isfirstAlarm = true;
 		}
 	}
@@ -143,7 +136,7 @@ public class AlarmViewModel {
 	private void checkContactsTime(){
 		EditText textMessage = (EditText)_parent.findViewById(R.id.EditTextContactTime);
 		Calendar lastAlarm = Calendar.getInstance();
-    	lastAlarm.setTime(lastAlarmTime);
+    	lastAlarm.setTime(lastAnsweredAlarmTime);
     	Calendar currentAlarm = Calendar.getInstance();
     	
     	// We create a new calendar and set the time to the difference between the lastAlarmTime and the Current Time
