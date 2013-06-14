@@ -63,14 +63,14 @@ public class MainActivity extends SherlockActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add("Send instant Broadcast").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+		/*menu.add("Send instant Broadcast").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
             	Intent i = new Intent("com.ovgu.zim.AlarmActivity");
             	sendBroadcast(i);
                 return true;
             }
-        }).setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        }).setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);*/
 		return true;
 	}
 	
@@ -109,7 +109,7 @@ public class MainActivity extends SherlockActivity {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						String enteredpw = input.getText().toString();
-						if (enteredpw.equals("adminadmin123")){
+						if (enteredpw.equals("bs8jxkqv")){
 							wipeData();
 						}else{
 							Toast.makeText(getApplicationContext(), "Falsches Passwort", Toast.LENGTH_SHORT).show();
