@@ -108,7 +108,8 @@ public class MainActivity extends SherlockActivity {
 				new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						if (input.getText().toString()=="adminadmin123"){
+						String enteredpw = input.getText().toString();
+						if (enteredpw.equals("adminadmin123")){
 							wipeData();
 						}else{
 							Toast.makeText(getApplicationContext(), "Falsches Passwort", Toast.LENGTH_SHORT).show();

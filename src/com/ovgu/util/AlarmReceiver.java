@@ -65,20 +65,21 @@ public class AlarmReceiver extends BroadcastReceiver {
 	    
 	    SimpleDateFormat format = new SimpleDateFormat("dd.MM.yy HH:mm", Locale.getDefault());
 	    Calendar now = Calendar.getInstance();
+	    String currentAlarmTime = format.format(now.getTime());
+	    
 	    
 	    // Creates an explicit intent for an Activity in your app
 	    Intent resultIntent = new Intent(context, AlarmActivity.class);
-	    String alarmExtra=format.format(now.getTime());
-	    resultIntent.putExtra("currentAlarmTime", alarmExtra);
+	    resultIntent.putExtra("currentAlarmTime", currentAlarmTime);
 	    
 	    // Set the last Alarm
 	    ApplicationValues.setLastAlarmTime(ApplicationValues.getCurrentAlarmTime(context), context);
-	    ApplicationValues.setCurrentAlarmTime(format.format(now.getTime()), context);
+	    ApplicationValues.setCurrentAlarmTime(currentAlarmTime, context);
 	    
 		String lastAlarmTime=ApplicationValues.getLastAlarmTime(context);
 		String lastAnsweredAlarm=ApplicationValues.getLastSavedAlarmTime(context);
 		
-		if (lastAlarmTime != lastAnsweredAlarm){
+		if (!lastAlarmTime.equals(lastAnsweredAlarm)){
 	    	// The last event was not saved. Save the object with the -77's here
 			DatabaseEntry data = new DatabaseEntry();
 			data.setContacts("-77");
@@ -90,7 +91,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 			JSONConnector.addEntry(data, context);
 	    }
 		
-	    PendingIntent resultPendingIntent = PendingIntent.getActivity(context, 0, resultIntent, 0);
+	    PendingIntent resultPendingIntent = PendingIntent.getActivity(context, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 	    mBuilder.setContentIntent(resultPendingIntent);
 	    mBuilder.setAutoCancel(true);
 	    NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
