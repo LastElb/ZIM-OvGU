@@ -6,6 +6,7 @@ import com.ovgu.jsondb.JSONConnector;
 
 import android.content.Context;
 import android.os.Environment;
+import android.widget.Toast;
 
 public class CSVExporter {
 	public void exportAsCsv(Context context) {
@@ -21,7 +22,7 @@ public class CSVExporter {
 			File dir = new File(root.getAbsolutePath() + "/ZIM");
 			dir.mkdirs();
 			
-			file = new File(dir, "Probandencode.csv");
+			file = new File(dir, ApplicationValues.getUserID(context) + ".csv");
 			FileOutputStream out = null;
 			try {
 				out = new FileOutputStream(file, false);
@@ -35,6 +36,7 @@ public class CSVExporter {
 			}
 			try {
 				out.close();
+				Toast.makeText(context, "Erfolgreich gespeichert", Toast.LENGTH_SHORT).show();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
