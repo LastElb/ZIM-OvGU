@@ -5,8 +5,16 @@ import java.lang.reflect.Type;
 import com.google.gson.*;
 import com.ovgu.util.DatabaseEntry;
 
+/**
+ * This class helps to serialize objects of {@code DatabaseEntry}
+ * @author Igor Lückel
+ *
+ */
 public class DBEntrySerializer implements JsonSerializer<DatabaseEntry> {
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public JsonElement serialize(DatabaseEntry src, Type typeOfSrc,
 			JsonSerializationContext context) {

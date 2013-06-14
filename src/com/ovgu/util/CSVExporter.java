@@ -8,6 +8,11 @@ import android.content.Context;
 import android.os.Environment;
 import android.widget.Toast;
 
+/**
+ * 
+ * @author Igor Lückel
+ *
+ */
 public class CSVExporter {
 	public void exportAsCsv(Context context) {
 		String columnString = DatabaseEntry.csvHeader();

@@ -10,6 +10,11 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 import com.ovgu.util.DatabaseEntry;
 
+/**
+ * This class is wrapper to store items of {@code DatabaseEntry} to an local database
+ * @author Igor Lückel
+ *
+ */
 public class JSONConnector {
 	private static String FILENAME = "jsondb";
 	/**

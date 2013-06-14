@@ -5,6 +5,11 @@ import java.lang.reflect.Type;
 import com.google.gson.*;
 import com.ovgu.util.DatabaseEntry;
 
+/**
+ * This class hepls to deserialize the json object to an DatabaseEntry
+ * @author Igor Lückel
+ *
+ */
 public class DBEntryDeserializer implements JsonDeserializer<DatabaseEntry> {
 
 	@Override
