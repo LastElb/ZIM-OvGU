@@ -58,11 +58,6 @@ public class AlarmReceiver extends BroadcastReceiver {
 	            .setContentTitle("ZIM-Alarm")
 	            .setContentText("Auswertung der sozialen Kontakte nötig!");
 	    
-	    // Android 2.x has normally a light taskbar. And the icon set previous is also light. So we are changing it here to a dark version if needed
-	    if (android.os.Build.VERSION.RELEASE.startsWith("2.")){
-	    	mBuilder.setSmallIcon(R.drawable.ic_social_group_dark);
-	    }
-	    
 	    SimpleDateFormat format = new SimpleDateFormat("dd.MM.yy HH:mm", Locale.getDefault());
 	    Calendar now = Calendar.getInstance();
 	    String currentAlarmTime = format.format(now.getTime());
