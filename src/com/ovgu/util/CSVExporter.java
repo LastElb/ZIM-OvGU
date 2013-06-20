@@ -41,7 +41,7 @@ public class CSVExporter {
 			}
 			try {
 				out.close();
-				Toast.makeText(context, "Erfolgreich gespeichert", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context.getApplicationContext(), "Erfolgreich gespeichert", Toast.LENGTH_SHORT).show();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
