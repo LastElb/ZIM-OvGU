@@ -5,8 +5,8 @@ ZIM is an android application developed by students of the Otto-von-Guericke-Uni
 Building the project
 --------------------
 In order to build the project on your machine you need to have
-* google-gson
-* ActionBarSherlock
+- google-gson
+- ActionBarSherlock
 
 Installing the app
 ------------------
