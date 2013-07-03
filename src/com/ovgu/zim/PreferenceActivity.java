@@ -176,7 +176,11 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 	@SuppressLint("NewApi")
 	private void SetDoneIcon(Preference preference){
 		if (android.os.Build.VERSION.SDK_INT>android.os.Build.VERSION_CODES.HONEYCOMB){
-        	preference.setIcon(R.drawable.ic_navigation_accept);
+			try{
+				preference.setIcon(R.drawable.ic_navigation_accept);
+			}catch (Exception e){
+				
+			}
         }
 	}
 
