@@ -34,7 +34,8 @@
         <activity
             android:name="com.ovgu.zim.AlarmActivity"
             android:label="@string/title_activity_alarm"
-            android:icon="@drawable/ic_head" >
+            android:icon="@drawable/ic_head"
+            android:excludeFromRecents="true" >
         </activity>
         
         <receiver android:name="com.ovgu.util.AlarmReceiver" >
