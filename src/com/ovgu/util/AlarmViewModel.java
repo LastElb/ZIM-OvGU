@@ -17,9 +17,8 @@ import com.ovgu.zim.AlarmActivity;
 import com.ovgu.zim.R;
 
 /**
- * 
- * @author Igor Lückel
- *
+ * This is a viewmodel for the AlarmActivity class
+ * @author Igor Lueckel
  */
 public class AlarmViewModel {
 	private AlarmActivity _parent;
@@ -39,7 +38,7 @@ public class AlarmViewModel {
 	/**
 	 * Creates a instance of DatabaseEntry and saves it directly to the database
 	 */
-	public void saveAndExit(){
+	public void saveAndExit(){		
 		SimpleDateFormat datetimeformat = new SimpleDateFormat("dd.MM.yy HH:mm", Locale.getDefault());
 		SimpleDateFormat dateformat = new SimpleDateFormat("dd.MM.yy", Locale.getDefault());
 		SimpleDateFormat timeformat = new SimpleDateFormat("HH:mm", Locale.getDefault());  
@@ -130,9 +129,25 @@ public class AlarmViewModel {
 	        }
 	        public void beforeTextChanged(CharSequence s, int start, int count, int after){}
 	        public void onTextChanged(CharSequence s, int start, int before, int count){}
-	    }); 
+	    });
+	    
+	    final EditText textMessage2 = (EditText)_parent.findViewById(R.id.EditTextContacts);
+	    textMessage2.addTextChangedListener(new TextWatcher(){
+	        public void afterTextChanged(Editable s) {
+	        	checkContactsTime();
+	        }
+	        public void beforeTextChanged(CharSequence s, int start, int count, int after){}
+	        public void onTextChanged(CharSequence s, int start, int before, int count){}
+	    });
 	}
 	
+	/**
+	 * Checks the validity of the entered values. This includes:
+	 * <ul>
+	 * <li> Checking if the inserted time is less than the time between now and the last alarm </li>
+	 * <li> Checking if the contactcount is zero but the conatacttime is not </li>
+	 * </ul>
+	 */
 	private void checkContactsTime(){
 		EditText textMessage = (EditText)_parent.findViewById(R.id.EditTextContactTime);
 		Calendar lastAlarm = Calendar.getInstance();
@@ -162,6 +177,20 @@ public class AlarmViewModel {
     		warning.setVisibility(TextView.GONE);
     		textMessage.setTextColor(Color.BLACK);
     		_isTimeCorrect = true;
+    	}
+    	
+    	//Check if the contactcount is zero but the contacttime is not
+    	EditText contactcount = (EditText) _parent.findViewById(R.id.EditTextContacts);
+    	if (contactcount.getText().toString().length() == 0)
+    		contactcount.setText("0");
+    	int contacts = Integer.parseInt(contactcount.getText().toString());
+    	
+    	TextView warningZeroContacts = (TextView) _parent.findViewById(R.id.TextViewWrongTimeZeroContact);
+    	if (contacts==0 && Integer.parseInt(mininput) != 0){
+    		warningZeroContacts.setVisibility(TextView.VISIBLE);
+    		_isTimeCorrect = false;
+    	}else{
+    		warningZeroContacts.setVisibility(TextView.GONE);
     	}
 	}
 

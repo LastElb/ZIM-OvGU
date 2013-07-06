@@ -21,8 +21,8 @@ import com.ovgu.jsondb.JSONConnector;
 import com.ovgu.util.*;
 
 /**
- * 
- * @author Igor Lückel
+ * The MainActivity is the entrypoint of the app. The user can see the next alarm time, change preferences, export data as csv and wipe the app.
+ * @author Igor Lueckel
  *
  */
 public class MainActivity extends SherlockActivity {
@@ -63,14 +63,14 @@ public class MainActivity extends SherlockActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		/*menu.add("Send instant Broadcast").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+		menu.add("Send instant Broadcast").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
             	Intent i = new Intent("com.ovgu.zim.AlarmActivity");
             	sendBroadcast(i);
                 return true;
             }
-        }).setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);*/
+        }).setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
 		return true;
 	}
 	

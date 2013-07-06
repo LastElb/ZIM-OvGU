@@ -1,0 +1,85 @@
+\hypertarget{classcom_1_1ovgu_1_1util_1_1_alarm_view_model}{\section{com.\-ovgu.\-util.\-Alarm\-View\-Model Class Reference}
+\label{classcom_1_1ovgu_1_1util_1_1_alarm_view_model}\index{com.\-ovgu.\-util.\-Alarm\-View\-Model@{com.\-ovgu.\-util.\-Alarm\-View\-Model}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcom_1_1ovgu_1_1util_1_1_alarm_view_model_aafa25a37ae679b8963157775c1c95cf8}{Alarm\-View\-Model} (\hyperlink{classcom_1_1ovgu_1_1zim_1_1_alarm_activity}{Alarm\-Activity} parent)
+\item 
+void \hyperlink{classcom_1_1ovgu_1_1util_1_1_alarm_view_model_a00d0e2a30aae9130e9392df06cfe9da6}{save\-And\-Exit} ()
+\item 
+void \hyperlink{classcom_1_1ovgu_1_1util_1_1_alarm_view_model_a3ef352e4d73883dde2bfd60e6a2030e0}{set\-Last\-Alarm\-Time\-To\-U\-I} ()
+\item 
+void \hyperlink{classcom_1_1ovgu_1_1util_1_1_alarm_view_model_a56c229b0bb8c40a6466274099f828308}{set\-Internal\-Alarm\-Times} ()
+\item 
+void \hyperlink{classcom_1_1ovgu_1_1util_1_1_alarm_view_model_a6e7bbb9242342ebea411f7c80de3c617}{append\-Text\-Listener} ()
+\item 
+boolean \hyperlink{classcom_1_1ovgu_1_1util_1_1_alarm_view_model_af6aea61ec09aca02e8552d80ee786892}{get\-Is\-Entered\-Time\-Correct} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is a viewmodel for the Alarm\-Activity class \begin{DoxyAuthor}{Author}
+Igor Lueckel 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classcom_1_1ovgu_1_1util_1_1_alarm_view_model_aafa25a37ae679b8963157775c1c95cf8}{\index{com\-::ovgu\-::util\-::\-Alarm\-View\-Model@{com\-::ovgu\-::util\-::\-Alarm\-View\-Model}!Alarm\-View\-Model@{Alarm\-View\-Model}}
+\index{Alarm\-View\-Model@{Alarm\-View\-Model}!com::ovgu::util::AlarmViewModel@{com\-::ovgu\-::util\-::\-Alarm\-View\-Model}}
+\subsubsection[{Alarm\-View\-Model}]{\setlength{\rightskip}{0pt plus 5cm}com.\-ovgu.\-util.\-Alarm\-View\-Model.\-Alarm\-View\-Model (
+\begin{DoxyParamCaption}
+\item[{{\bf Alarm\-Activity}}]{parent}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1ovgu_1_1util_1_1_alarm_view_model_aafa25a37ae679b8963157775c1c95cf8}
+Creates a new instance of \hyperlink{classcom_1_1ovgu_1_1util_1_1_alarm_view_model}{Alarm\-View\-Model} 
+\begin{DoxyParams}{Parameters}
+{\em parent} & A instance of Alarm\-Activity \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classcom_1_1ovgu_1_1util_1_1_alarm_view_model_a6e7bbb9242342ebea411f7c80de3c617}{\index{com\-::ovgu\-::util\-::\-Alarm\-View\-Model@{com\-::ovgu\-::util\-::\-Alarm\-View\-Model}!append\-Text\-Listener@{append\-Text\-Listener}}
+\index{append\-Text\-Listener@{append\-Text\-Listener}!com::ovgu::util::AlarmViewModel@{com\-::ovgu\-::util\-::\-Alarm\-View\-Model}}
+\subsubsection[{append\-Text\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-ovgu.\-util.\-Alarm\-View\-Model.\-append\-Text\-Listener (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1ovgu_1_1util_1_1_alarm_view_model_a6e7bbb9242342ebea411f7c80de3c617}
+This Text\-Changed\-Listener checks if the minutes input is not greater than the possible minutes (time between last and current alarm) \hypertarget{classcom_1_1ovgu_1_1util_1_1_alarm_view_model_af6aea61ec09aca02e8552d80ee786892}{\index{com\-::ovgu\-::util\-::\-Alarm\-View\-Model@{com\-::ovgu\-::util\-::\-Alarm\-View\-Model}!get\-Is\-Entered\-Time\-Correct@{get\-Is\-Entered\-Time\-Correct}}
+\index{get\-Is\-Entered\-Time\-Correct@{get\-Is\-Entered\-Time\-Correct}!com::ovgu::util::AlarmViewModel@{com\-::ovgu\-::util\-::\-Alarm\-View\-Model}}
+\subsubsection[{get\-Is\-Entered\-Time\-Correct}]{\setlength{\rightskip}{0pt plus 5cm}boolean com.\-ovgu.\-util.\-Alarm\-View\-Model.\-get\-Is\-Entered\-Time\-Correct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1ovgu_1_1util_1_1_alarm_view_model_af6aea61ec09aca02e8552d80ee786892}
+This boolean indicates if the entered time is valid. It's valid if the value is not greater than difference between now and the last alarm time \begin{DoxyReturn}{Returns}
+True if the value is valid 
+\end{DoxyReturn}
+\hypertarget{classcom_1_1ovgu_1_1util_1_1_alarm_view_model_a00d0e2a30aae9130e9392df06cfe9da6}{\index{com\-::ovgu\-::util\-::\-Alarm\-View\-Model@{com\-::ovgu\-::util\-::\-Alarm\-View\-Model}!save\-And\-Exit@{save\-And\-Exit}}
+\index{save\-And\-Exit@{save\-And\-Exit}!com::ovgu::util::AlarmViewModel@{com\-::ovgu\-::util\-::\-Alarm\-View\-Model}}
+\subsubsection[{save\-And\-Exit}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-ovgu.\-util.\-Alarm\-View\-Model.\-save\-And\-Exit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1ovgu_1_1util_1_1_alarm_view_model_a00d0e2a30aae9130e9392df06cfe9da6}
+Creates a instance of \hyperlink{classcom_1_1ovgu_1_1util_1_1_database_entry}{Database\-Entry} and saves it directly to the database \hypertarget{classcom_1_1ovgu_1_1util_1_1_alarm_view_model_a56c229b0bb8c40a6466274099f828308}{\index{com\-::ovgu\-::util\-::\-Alarm\-View\-Model@{com\-::ovgu\-::util\-::\-Alarm\-View\-Model}!set\-Internal\-Alarm\-Times@{set\-Internal\-Alarm\-Times}}
+\index{set\-Internal\-Alarm\-Times@{set\-Internal\-Alarm\-Times}!com::ovgu::util::AlarmViewModel@{com\-::ovgu\-::util\-::\-Alarm\-View\-Model}}
+\subsubsection[{set\-Internal\-Alarm\-Times}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-ovgu.\-util.\-Alarm\-View\-Model.\-set\-Internal\-Alarm\-Times (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1ovgu_1_1util_1_1_alarm_view_model_a56c229b0bb8c40a6466274099f828308}
+Catches the current\-Alarm\-Time and last\-Alarm\-Time from the intent and sharedpreferences \hypertarget{classcom_1_1ovgu_1_1util_1_1_alarm_view_model_a3ef352e4d73883dde2bfd60e6a2030e0}{\index{com\-::ovgu\-::util\-::\-Alarm\-View\-Model@{com\-::ovgu\-::util\-::\-Alarm\-View\-Model}!set\-Last\-Alarm\-Time\-To\-U\-I@{set\-Last\-Alarm\-Time\-To\-U\-I}}
+\index{set\-Last\-Alarm\-Time\-To\-U\-I@{set\-Last\-Alarm\-Time\-To\-U\-I}!com::ovgu::util::AlarmViewModel@{com\-::ovgu\-::util\-::\-Alarm\-View\-Model}}
+\subsubsection[{set\-Last\-Alarm\-Time\-To\-U\-I}]{\setlength{\rightskip}{0pt plus 5cm}void com.\-ovgu.\-util.\-Alarm\-View\-Model.\-set\-Last\-Alarm\-Time\-To\-U\-I (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classcom_1_1ovgu_1_1util_1_1_alarm_view_model_a3ef352e4d73883dde2bfd60e6a2030e0}
+Displays the last Alarmtime on the first panel on the U\-I 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Igor/\-Android/workspace/\-Z\-I\-M/src/com/ovgu/util/Alarm\-View\-Model.\-java\end{DoxyCompactItemize}

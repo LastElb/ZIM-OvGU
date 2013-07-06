@@ -13,8 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * 
- * @author Igor Lückel
+ * The AlarmActivity is a ScreenActivity and is shown after the smartphone user tabs the notification in the notifican bar.
+ * The user can enter his amount of contacts and the spend time with them.
+ * @author Igor Lueckel
  *
  */
 public class AlarmActivity extends SherlockActivity {

@@ -4,7 +4,7 @@ import java.text.ParseException;
 
 /**
  * This class is intended to store temporary data from the user input.
- * @author Igor Lückel
+ * @author Igor Lueckel
  *
  */
 public class DatabaseEntry {

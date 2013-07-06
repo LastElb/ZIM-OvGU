@@ -23,8 +23,8 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 
 /**
- * This class gets called if an alarm occures. It plays a sound or vibrates (depends on user preferences) and creates a new notification with
- * @author Igor Lückel
+ * This class gets called if an alarm occures. It plays a sound or vibrates (depends on user preferences) and creates a new notification.
+ * @author Igor Lueckel
  *
  */
 public class AlarmReceiver extends BroadcastReceiver {

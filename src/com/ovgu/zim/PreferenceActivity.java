@@ -18,8 +18,8 @@ import com.actionbarsherlock.view.MenuItem;
 import com.ovgu.util.AlarmSetter;
 
 /**
- * 
- * @author Igor Lückel
+ * Within the PreferenceActivity the user can change alarmtimes and alarmtypes 
+ * @author Igor Lueckel
  *
  */
 public class PreferenceActivity extends SherlockPreferenceActivity  {

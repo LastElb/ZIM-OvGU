@@ -1,0 +1,190 @@
+\hypertarget{classcom_1_1ovgu_1_1util_1_1_application_values}{\section{com.\-ovgu.\-util.\-Application\-Values Class Reference}
+\label{classcom_1_1ovgu_1_1util_1_1_application_values}\index{com.\-ovgu.\-util.\-Application\-Values@{com.\-ovgu.\-util.\-Application\-Values}}
+}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static String \hyperlink{classcom_1_1ovgu_1_1util_1_1_application_values_a4eebfffba2fc91d80f48deda585953bc}{get\-User\-I\-D} (Context context)
+\item 
+static void \hyperlink{classcom_1_1ovgu_1_1util_1_1_application_values_a09b3de9a79ab45a6393d364b07e20627}{set\-User\-I\-D} (String value, Context context)
+\item 
+static String \hyperlink{classcom_1_1ovgu_1_1util_1_1_application_values_aec3673a7d1632fc141ba742047f3bc06}{get\-Last\-Alarm\-Time} (Context context)
+\item 
+static String \hyperlink{classcom_1_1ovgu_1_1util_1_1_application_values_a232b2f372590cfbd85e98916efbad8c1}{get\-Current\-Alarm\-Time} (Context context)
+\item 
+static String \hyperlink{classcom_1_1ovgu_1_1util_1_1_application_values_a4dfdb4c445f315a7a4cc3241d6df12e6}{get\-Last\-Answer\-Time} (Context context)
+\item 
+static String \hyperlink{classcom_1_1ovgu_1_1util_1_1_application_values_ac19ce8d0b9de71a3dc65e23b46b11384}{get\-Last\-Saved\-Alarm\-Time} (Context context)
+\item 
+static void \hyperlink{classcom_1_1ovgu_1_1util_1_1_application_values_ac6e150512a0407c0439d7c0280214417}{set\-Last\-Alarm\-Time} (String value, Context context)
+\item 
+static void \hyperlink{classcom_1_1ovgu_1_1util_1_1_application_values_a09dc19f803061c2455bab0d01de7bde3}{set\-Current\-Alarm\-Time} (String value, Context context)
+\item 
+static void \hyperlink{classcom_1_1ovgu_1_1util_1_1_application_values_afbbd12a2b85ebcccfdaa296e8a8ed6b8}{set\-Last\-Answer\-Time} (String value, Context context)
+\item 
+static void \hyperlink{classcom_1_1ovgu_1_1util_1_1_application_values_a90f4f75a9fcbd610dfd56ef45b15f6b6}{set\-Last\-Saved\-Alarm\-Time} (String value, Context context)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class manages some values used over the whole app \begin{DoxyAuthor}{Author}
+Igor Lueckel 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classcom_1_1ovgu_1_1util_1_1_application_values_a232b2f372590cfbd85e98916efbad8c1}{\index{com\-::ovgu\-::util\-::\-Application\-Values@{com\-::ovgu\-::util\-::\-Application\-Values}!get\-Current\-Alarm\-Time@{get\-Current\-Alarm\-Time}}
+\index{get\-Current\-Alarm\-Time@{get\-Current\-Alarm\-Time}!com::ovgu::util::ApplicationValues@{com\-::ovgu\-::util\-::\-Application\-Values}}
+\subsubsection[{get\-Current\-Alarm\-Time}]{\setlength{\rightskip}{0pt plus 5cm}static String com.\-ovgu.\-util.\-Application\-Values.\-get\-Current\-Alarm\-Time (
+\begin{DoxyParamCaption}
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1ovgu_1_1util_1_1_application_values_a232b2f372590cfbd85e98916efbad8c1}
+This function returns the time, when the current alarm should happen. 
+\begin{DoxyParams}{Parameters}
+{\em context} & The current application context \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The String has the format \char`\"{}dd.\-M\-M.\-yy H\-H.\-mm\char`\"{} 
+\end{DoxyReturn}
+\hypertarget{classcom_1_1ovgu_1_1util_1_1_application_values_aec3673a7d1632fc141ba742047f3bc06}{\index{com\-::ovgu\-::util\-::\-Application\-Values@{com\-::ovgu\-::util\-::\-Application\-Values}!get\-Last\-Alarm\-Time@{get\-Last\-Alarm\-Time}}
+\index{get\-Last\-Alarm\-Time@{get\-Last\-Alarm\-Time}!com::ovgu::util::ApplicationValues@{com\-::ovgu\-::util\-::\-Application\-Values}}
+\subsubsection[{get\-Last\-Alarm\-Time}]{\setlength{\rightskip}{0pt plus 5cm}static String com.\-ovgu.\-util.\-Application\-Values.\-get\-Last\-Alarm\-Time (
+\begin{DoxyParamCaption}
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1ovgu_1_1util_1_1_application_values_aec3673a7d1632fc141ba742047f3bc06}
+This function returns the last time when the app had an alarm. The value is empty at the beginning 
+\begin{DoxyParams}{Parameters}
+{\em context} & The current application context \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The String has the format \char`\"{}dd.\-M\-M.\-yy H\-H.\-mm\char`\"{} 
+\end{DoxyReturn}
+\hypertarget{classcom_1_1ovgu_1_1util_1_1_application_values_a4dfdb4c445f315a7a4cc3241d6df12e6}{\index{com\-::ovgu\-::util\-::\-Application\-Values@{com\-::ovgu\-::util\-::\-Application\-Values}!get\-Last\-Answer\-Time@{get\-Last\-Answer\-Time}}
+\index{get\-Last\-Answer\-Time@{get\-Last\-Answer\-Time}!com::ovgu::util::ApplicationValues@{com\-::ovgu\-::util\-::\-Application\-Values}}
+\subsubsection[{get\-Last\-Answer\-Time}]{\setlength{\rightskip}{0pt plus 5cm}static String com.\-ovgu.\-util.\-Application\-Values.\-get\-Last\-Answer\-Time (
+\begin{DoxyParamCaption}
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1ovgu_1_1util_1_1_application_values_a4dfdb4c445f315a7a4cc3241d6df12e6}
+This function returns the time, when the user reacted to an alarm the last time 
+\begin{DoxyParams}{Parameters}
+{\em context} & The current application context \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The String has the format \char`\"{}dd.\-M\-M.\-yy H\-H.\-mm\char`\"{} 
+\end{DoxyReturn}
+\hypertarget{classcom_1_1ovgu_1_1util_1_1_application_values_ac19ce8d0b9de71a3dc65e23b46b11384}{\index{com\-::ovgu\-::util\-::\-Application\-Values@{com\-::ovgu\-::util\-::\-Application\-Values}!get\-Last\-Saved\-Alarm\-Time@{get\-Last\-Saved\-Alarm\-Time}}
+\index{get\-Last\-Saved\-Alarm\-Time@{get\-Last\-Saved\-Alarm\-Time}!com::ovgu::util::ApplicationValues@{com\-::ovgu\-::util\-::\-Application\-Values}}
+\subsubsection[{get\-Last\-Saved\-Alarm\-Time}]{\setlength{\rightskip}{0pt plus 5cm}static String com.\-ovgu.\-util.\-Application\-Values.\-get\-Last\-Saved\-Alarm\-Time (
+\begin{DoxyParamCaption}
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1ovgu_1_1util_1_1_application_values_ac19ce8d0b9de71a3dc65e23b46b11384}
+This function returns the time from the last intentional alarm time the user answered 
+\begin{DoxyParams}{Parameters}
+{\em context} & The current application context \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The String has the format \char`\"{}dd.\-M\-M.\-yy H\-H.\-mm\char`\"{} 
+\end{DoxyReturn}
+\hypertarget{classcom_1_1ovgu_1_1util_1_1_application_values_a4eebfffba2fc91d80f48deda585953bc}{\index{com\-::ovgu\-::util\-::\-Application\-Values@{com\-::ovgu\-::util\-::\-Application\-Values}!get\-User\-I\-D@{get\-User\-I\-D}}
+\index{get\-User\-I\-D@{get\-User\-I\-D}!com::ovgu::util::ApplicationValues@{com\-::ovgu\-::util\-::\-Application\-Values}}
+\subsubsection[{get\-User\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}static String com.\-ovgu.\-util.\-Application\-Values.\-get\-User\-I\-D (
+\begin{DoxyParamCaption}
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1ovgu_1_1util_1_1_application_values_a4eebfffba2fc91d80f48deda585953bc}
+Returns the User\-I\-D (Probandencode) from the preference page. If the value is not set yet, it rreturns an empty string. 
+\begin{DoxyParams}{Parameters}
+{\em context} & The current application context \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a String with the current User\-I\-D. The String is empty if the value is not set yet. 
+\end{DoxyReturn}
+\hypertarget{classcom_1_1ovgu_1_1util_1_1_application_values_a09dc19f803061c2455bab0d01de7bde3}{\index{com\-::ovgu\-::util\-::\-Application\-Values@{com\-::ovgu\-::util\-::\-Application\-Values}!set\-Current\-Alarm\-Time@{set\-Current\-Alarm\-Time}}
+\index{set\-Current\-Alarm\-Time@{set\-Current\-Alarm\-Time}!com::ovgu::util::ApplicationValues@{com\-::ovgu\-::util\-::\-Application\-Values}}
+\subsubsection[{set\-Current\-Alarm\-Time}]{\setlength{\rightskip}{0pt plus 5cm}static void com.\-ovgu.\-util.\-Application\-Values.\-set\-Current\-Alarm\-Time (
+\begin{DoxyParamCaption}
+\item[{String}]{value, }
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1ovgu_1_1util_1_1_application_values_a09dc19f803061c2455bab0d01de7bde3}
+This function returns the time, when the current alarm should happen. 
+\begin{DoxyParams}{Parameters}
+{\em context} & The current application context \\
+\hline
+{\em value} & The String has the format \char`\"{}dd.\-M\-M.\-yy H\-H.\-mm\char`\"{} \\
+\hline
+\end{DoxyParams}
+\hypertarget{classcom_1_1ovgu_1_1util_1_1_application_values_ac6e150512a0407c0439d7c0280214417}{\index{com\-::ovgu\-::util\-::\-Application\-Values@{com\-::ovgu\-::util\-::\-Application\-Values}!set\-Last\-Alarm\-Time@{set\-Last\-Alarm\-Time}}
+\index{set\-Last\-Alarm\-Time@{set\-Last\-Alarm\-Time}!com::ovgu::util::ApplicationValues@{com\-::ovgu\-::util\-::\-Application\-Values}}
+\subsubsection[{set\-Last\-Alarm\-Time}]{\setlength{\rightskip}{0pt plus 5cm}static void com.\-ovgu.\-util.\-Application\-Values.\-set\-Last\-Alarm\-Time (
+\begin{DoxyParamCaption}
+\item[{String}]{value, }
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1ovgu_1_1util_1_1_application_values_ac6e150512a0407c0439d7c0280214417}
+This function returns the last time when the app had an alarm. The value is empty at the beginning 
+\begin{DoxyParams}{Parameters}
+{\em context} & The current application context \\
+\hline
+{\em value} & The String has the format \char`\"{}dd.\-M\-M.\-yy H\-H.\-mm\char`\"{} \\
+\hline
+\end{DoxyParams}
+\hypertarget{classcom_1_1ovgu_1_1util_1_1_application_values_afbbd12a2b85ebcccfdaa296e8a8ed6b8}{\index{com\-::ovgu\-::util\-::\-Application\-Values@{com\-::ovgu\-::util\-::\-Application\-Values}!set\-Last\-Answer\-Time@{set\-Last\-Answer\-Time}}
+\index{set\-Last\-Answer\-Time@{set\-Last\-Answer\-Time}!com::ovgu::util::ApplicationValues@{com\-::ovgu\-::util\-::\-Application\-Values}}
+\subsubsection[{set\-Last\-Answer\-Time}]{\setlength{\rightskip}{0pt plus 5cm}static void com.\-ovgu.\-util.\-Application\-Values.\-set\-Last\-Answer\-Time (
+\begin{DoxyParamCaption}
+\item[{String}]{value, }
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1ovgu_1_1util_1_1_application_values_afbbd12a2b85ebcccfdaa296e8a8ed6b8}
+This function returns the time, when the user reacted to an alarm the last time 
+\begin{DoxyParams}{Parameters}
+{\em context} & The current application context \\
+\hline
+{\em value} & The String has the format \char`\"{}dd.\-M\-M.\-yy H\-H.\-mm\char`\"{} \\
+\hline
+\end{DoxyParams}
+\hypertarget{classcom_1_1ovgu_1_1util_1_1_application_values_a90f4f75a9fcbd610dfd56ef45b15f6b6}{\index{com\-::ovgu\-::util\-::\-Application\-Values@{com\-::ovgu\-::util\-::\-Application\-Values}!set\-Last\-Saved\-Alarm\-Time@{set\-Last\-Saved\-Alarm\-Time}}
+\index{set\-Last\-Saved\-Alarm\-Time@{set\-Last\-Saved\-Alarm\-Time}!com::ovgu::util::ApplicationValues@{com\-::ovgu\-::util\-::\-Application\-Values}}
+\subsubsection[{set\-Last\-Saved\-Alarm\-Time}]{\setlength{\rightskip}{0pt plus 5cm}static void com.\-ovgu.\-util.\-Application\-Values.\-set\-Last\-Saved\-Alarm\-Time (
+\begin{DoxyParamCaption}
+\item[{String}]{value, }
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1ovgu_1_1util_1_1_application_values_a90f4f75a9fcbd610dfd56ef45b15f6b6}
+This function returns the time from the alarm, the user answered last (alarmtime, not anwertime) 
+\begin{DoxyParams}{Parameters}
+{\em context} & The current application context \\
+\hline
+{\em value} & The String has the format \char`\"{}dd.\-M\-M.\-yy H\-H.\-mm\char`\"{} \\
+\hline
+\end{DoxyParams}
+\hypertarget{classcom_1_1ovgu_1_1util_1_1_application_values_a09b3de9a79ab45a6393d364b07e20627}{\index{com\-::ovgu\-::util\-::\-Application\-Values@{com\-::ovgu\-::util\-::\-Application\-Values}!set\-User\-I\-D@{set\-User\-I\-D}}
+\index{set\-User\-I\-D@{set\-User\-I\-D}!com::ovgu::util::ApplicationValues@{com\-::ovgu\-::util\-::\-Application\-Values}}
+\subsubsection[{set\-User\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}static void com.\-ovgu.\-util.\-Application\-Values.\-set\-User\-I\-D (
+\begin{DoxyParamCaption}
+\item[{String}]{value, }
+\item[{Context}]{context}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1ovgu_1_1util_1_1_application_values_a09b3de9a79ab45a6393d364b07e20627}
+This methode sets the User\-I\-D (Probandencode) to the preferences. The String-\/value will be trimmed and lower-\/cased. 
+\begin{DoxyParams}{Parameters}
+{\em value} & The User\-I\-D \\
+\hline
+{\em context} & The current application context \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Igor/\-Android/workspace/\-Z\-I\-M/src/com/ovgu/util/Application\-Values.\-java\end{DoxyCompactItemize}

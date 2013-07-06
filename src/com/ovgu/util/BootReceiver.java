@@ -6,7 +6,7 @@ import android.content.Intent;
 
 /**
  * This class gets called when the android smartphones reboots. We set the alarms as they were reset after shutting down the device
- * @author Igor Lückel
+ * @author Igor Lueckel
  *
  */
 public class BootReceiver extends BroadcastReceiver {

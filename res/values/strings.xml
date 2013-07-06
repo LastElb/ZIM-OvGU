@@ -52,6 +52,7 @@
     <string name="ContactTime5">+5 Minuten</string>
     <string name="ContactTime15">+15 Minuten</string>
     <string name="ContactTimeWrongTime">Die von Ihnen eingegebene Minutenanzahl ist höher als die vergangenen Minuten seit dem letzten Alarm!</string>
+    <string name="ContactTimeWrongTimeZeroContacts">Sie können nicht Zeit mit Kontakten verbringen, die Sie gar nicht hatten (0 Kontakte eingegeben)!</string>
 	<string name="zero">0</string>
 	<string name="RelevantIntervalHeader">Betrachtungsintervall</string>
 	<string name="RelevantTimeInterval1">Für die Zählung sind nur Kontakte seit der letzten Befragung um</string>

@@ -9,11 +9,17 @@ import android.os.Environment;
 import android.widget.Toast;
 
 /**
- * 
- * @author Igor Lückel
+ * This class is a warpper for exporting datasets into a csv file in the public accessable storage 
+ * @author Igor Lueckel
  *
  */
 public class CSVExporter {
+	
+	/**
+	 * Saves and converts all entries of the JSON database into the csv format.
+	 * The file named by the user ID is saved into a folder called "ZIM". 
+	 * @param context The current application context
+	 */
 	public void exportAsCsv(Context context) {
 		String columnString = DatabaseEntry.csvHeader();
 		String combinedString = columnString + "\n";

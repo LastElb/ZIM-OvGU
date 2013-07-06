@@ -1,0 +1,66 @@
+\hypertarget{classcom_1_1ovgu_1_1jsondb_1_1_j_s_o_n_connector}{\section{com.\-ovgu.\-jsondb.\-J\-S\-O\-N\-Connector Class Reference}
+\label{classcom_1_1ovgu_1_1jsondb_1_1_j_s_o_n_connector}\index{com.\-ovgu.\-jsondb.\-J\-S\-O\-N\-Connector@{com.\-ovgu.\-jsondb.\-J\-S\-O\-N\-Connector}}
+}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classcom_1_1ovgu_1_1jsondb_1_1_j_s_o_n_connector_a112f195b08f25e352c3148c9c930e920}{add\-Entry} (\hyperlink{classcom_1_1ovgu_1_1util_1_1_database_entry}{Database\-Entry} entry, Context ctx)
+\item 
+static List$<$ \hyperlink{classcom_1_1ovgu_1_1util_1_1_database_entry}{Database\-Entry} $>$ \hyperlink{classcom_1_1ovgu_1_1jsondb_1_1_j_s_o_n_connector_af5b2897760749ce7d5e7ee5a7e7617f7}{get\-All\-Entries} (Context ctx)
+\item 
+static void \hyperlink{classcom_1_1ovgu_1_1jsondb_1_1_j_s_o_n_connector_abd4d4fba31c513848a85b22bce65fdeb}{delete\-Entries} (Context ctx)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is wrapper to store items of \hyperlink{}{Database\-Entry} to an local database \begin{DoxyAuthor}{Author}
+Igor Lueckel 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classcom_1_1ovgu_1_1jsondb_1_1_j_s_o_n_connector_a112f195b08f25e352c3148c9c930e920}{\index{com\-::ovgu\-::jsondb\-::\-J\-S\-O\-N\-Connector@{com\-::ovgu\-::jsondb\-::\-J\-S\-O\-N\-Connector}!add\-Entry@{add\-Entry}}
+\index{add\-Entry@{add\-Entry}!com::ovgu::jsondb::JSONConnector@{com\-::ovgu\-::jsondb\-::\-J\-S\-O\-N\-Connector}}
+\subsubsection[{add\-Entry}]{\setlength{\rightskip}{0pt plus 5cm}static void com.\-ovgu.\-jsondb.\-J\-S\-O\-N\-Connector.\-add\-Entry (
+\begin{DoxyParamCaption}
+\item[{{\bf Database\-Entry}}]{entry, }
+\item[{Context}]{ctx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1ovgu_1_1jsondb_1_1_j_s_o_n_connector_a112f195b08f25e352c3148c9c930e920}
+Adds an entry to the local json file 
+\begin{DoxyParams}{Parameters}
+{\em entry} & The Database\-Entry with data from the user \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\-O\-Exception} & \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{classcom_1_1ovgu_1_1jsondb_1_1_j_s_o_n_connector_abd4d4fba31c513848a85b22bce65fdeb}{\index{com\-::ovgu\-::jsondb\-::\-J\-S\-O\-N\-Connector@{com\-::ovgu\-::jsondb\-::\-J\-S\-O\-N\-Connector}!delete\-Entries@{delete\-Entries}}
+\index{delete\-Entries@{delete\-Entries}!com::ovgu::jsondb::JSONConnector@{com\-::ovgu\-::jsondb\-::\-J\-S\-O\-N\-Connector}}
+\subsubsection[{delete\-Entries}]{\setlength{\rightskip}{0pt plus 5cm}static void com.\-ovgu.\-jsondb.\-J\-S\-O\-N\-Connector.\-delete\-Entries (
+\begin{DoxyParamCaption}
+\item[{Context}]{ctx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1ovgu_1_1jsondb_1_1_j_s_o_n_connector_abd4d4fba31c513848a85b22bce65fdeb}
+This methode deletes the local json files. All datas saved in it will be lost \hypertarget{classcom_1_1ovgu_1_1jsondb_1_1_j_s_o_n_connector_af5b2897760749ce7d5e7ee5a7e7617f7}{\index{com\-::ovgu\-::jsondb\-::\-J\-S\-O\-N\-Connector@{com\-::ovgu\-::jsondb\-::\-J\-S\-O\-N\-Connector}!get\-All\-Entries@{get\-All\-Entries}}
+\index{get\-All\-Entries@{get\-All\-Entries}!com::ovgu::jsondb::JSONConnector@{com\-::ovgu\-::jsondb\-::\-J\-S\-O\-N\-Connector}}
+\subsubsection[{get\-All\-Entries}]{\setlength{\rightskip}{0pt plus 5cm}static List$<${\bf Database\-Entry}$>$ com.\-ovgu.\-jsondb.\-J\-S\-O\-N\-Connector.\-get\-All\-Entries (
+\begin{DoxyParamCaption}
+\item[{Context}]{ctx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classcom_1_1ovgu_1_1jsondb_1_1_j_s_o_n_connector_af5b2897760749ce7d5e7ee5a7e7617f7}
+This function reads the local json file and converts all json objects into java objects. If there are no saved datas the function returns an empty list \begin{DoxyReturn}{Returns}
+Returns a list of all entries saved on the phone 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & The current application context \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Igor/\-Android/workspace/\-Z\-I\-M/src/com/ovgu/jsondb/J\-S\-O\-N\-Connector.\-java\end{DoxyCompactItemize}

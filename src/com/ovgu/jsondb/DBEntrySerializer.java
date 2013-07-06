@@ -6,8 +6,8 @@ import com.google.gson.*;
 import com.ovgu.util.DatabaseEntry;
 
 /**
- * This class helps to serialize objects of {@code DatabaseEntry}
- * @author Igor Lückel
+ * This class helps to serialize objects of {@link DatabaseEntry}
+ * @author Igor Lueckel
  *
  */
 public class DBEntrySerializer implements JsonSerializer<DatabaseEntry> {

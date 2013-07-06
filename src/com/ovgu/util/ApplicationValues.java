@@ -7,7 +7,7 @@ import android.preference.PreferenceManager;
 
 /**
  * This class manages some values used over the whole app
- * @author Igor Lückel
+ * @author Igor Lueckel
  *
  */
 public class ApplicationValues {

@@ -11,8 +11,8 @@ import com.google.gson.JsonSyntaxException;
 import com.ovgu.util.DatabaseEntry;
 
 /**
- * This class is wrapper to store items of {@code DatabaseEntry} to an local database
- * @author Igor Lückel
+ * This class is wrapper to store items of {@link DatabaseEntry} to an local database
+ * @author Igor Lueckel
  *
  */
 public class JSONConnector {

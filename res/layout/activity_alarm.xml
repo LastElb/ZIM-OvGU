@@ -207,12 +207,24 @@
                 android:text="@string/ContactTimeWrongTime"
                 android:textColor="@color/red"
                 android:visibility="gone" />
+            
+            <TextView
+                android:id="@+id/TextViewWrongTimeZeroContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TextViewWrongTime"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="12dp"
+                android:text="@string/ContactTimeWrongTimeZeroContacts"
+                android:textColor="@color/red"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/EditTextContactTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/TextViewWrongTime"
+                android:layout_below="@+id/TextViewWrongTimeZeroContact"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:layout_marginTop="12dp"

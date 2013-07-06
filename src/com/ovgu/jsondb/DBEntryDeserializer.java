@@ -6,8 +6,8 @@ import com.google.gson.*;
 import com.ovgu.util.DatabaseEntry;
 
 /**
- * This class hepls to deserialize the json object to an DatabaseEntry
- * @author Igor Lückel
+ * This class hepls to deserialize the json object to an {@link DatabaseEntry}
+ * @author Igor Lueckel
  *
  */
 public class DBEntryDeserializer implements JsonDeserializer<DatabaseEntry> {

@@ -10,8 +10,9 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 /**
- * 
- * @author Igor Lückel
+ * This class manages alarm depending actions. You can create/update alarms and delete them as well.
+ * Furthermore you get the next alarmtime.
+ * @author Igor Lueckel
  *
  */
 public class AlarmSetter {
