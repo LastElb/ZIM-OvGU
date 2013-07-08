@@ -49,9 +49,9 @@ public class AlarmActivity extends SherlockActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		menu.add(this.getString(R.string.save))
+		/*menu.add(this.getString(R.string.save))
 				.setIcon(R.drawable.ic_content_save_light)
-				.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM| MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+				.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM| MenuItem.SHOW_AS_ACTION_WITH_TEXT);*/
 		return super.onCreateOptionsMenu(menu);
 	}
 	
