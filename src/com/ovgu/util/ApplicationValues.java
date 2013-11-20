@@ -111,4 +111,15 @@ public class ApplicationValues {
 		SharedPreferences settings = context.getSharedPreferences("alarmValues", 0);
 		settings.edit().putString("lastSavedAlarm", value).commit();
 	}
+	
+	public static void setValue(String key, String value, Context context){
+		SharedPreferences settings = context.getSharedPreferences("alarmValues", 0);
+		settings.edit().putString(key, value).commit();
+	}
+	
+	public static String getValue(String key, Context context){
+		SharedPreferences settings = context.getSharedPreferences("alarmValues", 0);
+		return settings.getString(key, "");
+	}
+	
 }

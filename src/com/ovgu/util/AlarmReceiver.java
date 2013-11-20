@@ -51,13 +51,6 @@ public class AlarmReceiver extends BroadcastReceiver {
 		    playSound(context, uri);
 		}
 	    
-		// Creates a new notification
-	    NotificationCompat.Builder mBuilder =
-	            new NotificationCompat.Builder(context)
-	            .setSmallIcon(R.drawable.ic_social_group)
-	            .setContentTitle("ZIM-Alarm")
-	            .setContentText("Auswertung der sozialen Kontakte nötig!");
-	    
 	    SimpleDateFormat format = new SimpleDateFormat("dd.MM.yy HH:mm", Locale.getDefault());
 	    Calendar now = Calendar.getInstance();
 	    String currentAlarmTime = format.format(now.getTime());
@@ -87,8 +80,15 @@ public class AlarmReceiver extends BroadcastReceiver {
 	    }
 		
 	    PendingIntent resultPendingIntent = PendingIntent.getActivity(context, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-	    mBuilder.setContentIntent(resultPendingIntent);
-	    mBuilder.setAutoCancel(true);
+	    // Creates a new notification
+	    NotificationCompat.Builder mBuilder =
+	            new NotificationCompat.Builder(context)
+	            .setSmallIcon(R.drawable.ic_social_group)
+	            .setContentTitle("ZIM-Alarm")
+	            .setContentText("Auswertung der sozialen Kontakte nötig!")
+	            .setAutoCancel(true)
+	            .setContentIntent(resultPendingIntent);
+	    
 	    NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 	    int mId=1000;
 	    

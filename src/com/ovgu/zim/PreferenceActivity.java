@@ -6,8 +6,11 @@ import java.util.regex.Pattern;
 
 import com.actionbarsherlock.app.SherlockPreferenceActivity;
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -15,7 +18,9 @@ import android.widget.Toast;
 
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.espian.showcaseview.ShowcaseView;
 import com.ovgu.util.AlarmSetter;
+import com.ovgu.util.ApplicationValues;
 
 /**
  * Within the PreferenceActivity the user can change alarmtimes and alarmtypes 
@@ -165,6 +170,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 							public boolean onPreferenceChange(Preference preference, Object newValue) {
 								if ((Boolean)newValue==true){
 									preference.setSummary(VibrationSummary);
+									VibrateSmartphone();
 								}else{
 									preference.setSummary(NoVibrationSummary);
 								}
@@ -183,6 +189,12 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 			}
         }
 	}
+	
+	private void VibrateSmartphone()
+	{
+		Vibrator vibrator = (Vibrator) this.getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+	    vibrator.vibrate(1500);
+	}
 
 	/**
      * {@inheritDoc}
@@ -190,9 +202,22 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		menu.add(this.getString(R.string.save))
-				.setIcon(R.drawable.ic_content_save_light)
-				.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM| MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+		MenuItem item = menu.add(this.getString(R.string.save))
+							.setIcon(R.drawable.ic_content_save_light)
+							.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_IF_ROOM| MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+		
+		
+		if (ApplicationValues.getValue("ShowPreferenceActivityHelper", this.getApplicationContext()) == "")
+		{
+			ShowcaseView.ConfigOptions co = new ShowcaseView.ConfigOptions();
+	        co.hideOnClickOutside = false;
+	        co.block = true;
+	        co.fadeInDuration = 1000;
+	        co.fadeOutDuration = 1000;
+	        co.shotType = ShowcaseView.TYPE_ONE_SHOT;
+	        ShowcaseView sv = ShowcaseView.insertShowcaseViewWithType(ShowcaseView.ITEM_ACTION_ITEM, item.getItemId() , this, "Einstellungen", "Geben Sie in jeder Zeile Ihre persönlichen Daten bzw. Vorlieben an. Tippen Sie danach auf das freigestellte Symbol.", co);
+	        ApplicationValues.setValue("ShowPreferenceActivityHelper", "false", this.getApplicationContext());
+		}
 		return super.onCreateOptionsMenu(menu);
 	}
 	
@@ -213,6 +238,11 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
     		AlarmSetter as = new AlarmSetter();
     		
     		if (nextAlarm != -1){
+    			if (_wasblank)
+    			{
+    				Intent i = new Intent("com.ovgu.zim.AlarmActivity");
+                	sendBroadcast(i);
+    			}
     			as.setAlarms(this);
     		}else{
     			as.deleteAlarms(this);

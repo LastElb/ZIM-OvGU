@@ -16,9 +16,12 @@ import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.espian.showcaseview.ShowcaseView;
 
 import com.ovgu.jsondb.JSONConnector;
 import com.ovgu.util.*;
+
+//import com.espian.showcaseview.ShowcaseView;
 
 /**
  * The MainActivity is the entrypoint of the app. The user can see the next alarm time, change preferences, export data as csv and wipe the app.
@@ -26,11 +29,25 @@ import com.ovgu.util.*;
  *
  */
 public class MainActivity extends SherlockActivity {
+	
+	@SuppressWarnings("deprecation")
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+	
+		if (ApplicationValues.getValue("ShowMainActivityHelper", this.getApplicationContext()) == "")
+		{
+			ShowcaseView.ConfigOptions co = new ShowcaseView.ConfigOptions();
+	        co.hideOnClickOutside = false;
+	        co.block = true;
+	        co.fadeInDuration = 1000;
+	        co.fadeOutDuration = 1000;
+	        co.shotType = ShowcaseView.TYPE_ONE_SHOT;
+	        ShowcaseView sv = ShowcaseView.insertShowcaseView(R.id.TextView03, this, "Erster Start", "Legen Sie als erstes Ihre Appeinstellungen fest, indem Sie auf den Bereich im freiem Kreis tippen.", co);
+	        ApplicationValues.setValue("ShowMainActivityHelper", "false", this.getApplicationContext());
+		}
 	}
 	
 	@Override
@@ -52,7 +69,6 @@ public class MainActivity extends SherlockActivity {
 			as.deleteAlarms(this);
 		}else{
 			textview.setText(this.getString(R.string.NextAlarmP1) + " " + Integer.toString(nextAlarm) + this.getString(R.string.NextAlarmP2));
-			//as.setAlarms(this);
 		}
 	}
 	
@@ -109,7 +125,7 @@ public class MainActivity extends SherlockActivity {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						String enteredpw = input.getText().toString();
-						if (enteredpw.equals("bs8jxkqv")){
+						if (enteredpw.equals("so210761")){
 							wipeData();
 						}else{
 							Toast.makeText(getApplicationContext(), "Falsches Passwort", Toast.LENGTH_SHORT).show();
