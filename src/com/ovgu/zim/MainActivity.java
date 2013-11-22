@@ -1,6 +1,7 @@
 package com.ovgu.zim;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -31,6 +32,8 @@ import com.ovgu.util.*;
  */
 public class MainActivity extends SherlockActivity {
 	
+	private ShowcaseView sv;
+	
 	@SuppressWarnings("deprecation")
 	@SuppressLint("NewApi")
 	@Override
@@ -45,7 +48,7 @@ public class MainActivity extends SherlockActivity {
 	        co.fadeInDuration = 1000;
 	        co.fadeOutDuration = 1000;
 	        co.shotType = ShowcaseView.TYPE_ONE_SHOT;
-	        ShowcaseView sv = ShowcaseView.insertShowcaseView(R.id.TextView03, this, "Erster Start", "Legen Sie als erstes Ihre Appeinstellungen fest, indem Sie auf den Bereich im freiem Kreis tippen.", co);
+	        sv = ShowcaseView.insertShowcaseView(R.id.TextView03, this, "Erster Start", "Legen Sie als erstes Ihre Appeinstellungen fest, indem Sie auf den Bereich im freiem Kreis tippen.", co);
 	        ApplicationValues.setValue("ShowMainActivityHelper", "false", this.getApplicationContext());
 		}
 	}
@@ -87,6 +90,16 @@ public class MainActivity extends SherlockActivity {
                 return true;
             }
         }).setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);*/
+		final Activity activity = this;
+		menu.add("Info").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+			@Override
+            public boolean onMenuItemClick(MenuItem item) {
+				sv = ShowcaseView.insertShowcaseView(new ViewTarget(findViewById(R.id.TextView03)), activity);
+				sv.setShowcase(ShowcaseView.NONE);
+				sv.setText( "Info", "Autor: Igor Lückel\nKontakt: igor.lueckel@st.ovgu.de");
+                return true;
+            }
+		}).setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
 		return true;
 	}
 	
