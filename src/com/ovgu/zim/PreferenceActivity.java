@@ -193,7 +193,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 	private void VibrateSmartphone()
 	{
 		Vibrator vibrator = (Vibrator) this.getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
-	    vibrator.vibrate(1500);
+	    vibrator.vibrate(750);
 	}
 
 	/**

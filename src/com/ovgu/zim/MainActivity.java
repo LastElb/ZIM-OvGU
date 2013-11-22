@@ -17,6 +17,7 @@ import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.espian.showcaseview.ShowcaseView;
+import com.espian.showcaseview.targets.ViewTarget;
 
 import com.ovgu.jsondb.JSONConnector;
 import com.ovgu.util.*;
@@ -37,8 +38,7 @@ public class MainActivity extends SherlockActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 	
-		if (ApplicationValues.getValue("ShowMainActivityHelper", this.getApplicationContext()) == "")
-		{
+		if (ApplicationValues.getValue("ShowMainActivityHelper", this.getApplicationContext()) == "")	{
 			ShowcaseView.ConfigOptions co = new ShowcaseView.ConfigOptions();
 	        co.hideOnClickOutside = false;
 	        co.block = true;

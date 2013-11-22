@@ -41,7 +41,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
 		if (preferences.getBoolean("CheckBoxVibration", false) == true && audioManager.getRingerMode() != AudioManager.RINGER_MODE_SILENT){
 			Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-		    vibrator.vibrate(1500);
+		    vibrator.vibrate(750);
 		}
 		
 		// Play the ringtone sound when the sound mode is set to normal
