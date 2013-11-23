@@ -124,4 +124,15 @@ public class AlarmSetter {
 	    alarmManager.cancel(pendingIntent3);
 	    alarmManager.cancel(pendingIntent4);	    
 	}
+
+	public static void SetAlarmIn10Seconds(Context context){
+		Intent i1 = new Intent("com.ovgu.zim.AlarmActivity");
+		PendingIntent pendingIntent1 = PendingIntent.getBroadcast(context.getApplicationContext(), 8601, i1, PendingIntent.FLAG_UPDATE_CURRENT);
+		
+		Calendar cal1 = Calendar.getInstance();
+		cal1.add(Calendar.SECOND, 10);
+		
+		AlarmManager alarmManager = (AlarmManager) context.getSystemService(Activity.ALARM_SERVICE);
+		alarmManager.set(AlarmManager.RTC_WAKEUP, cal1.getTimeInMillis(), pendingIntent1);
+	}
 }

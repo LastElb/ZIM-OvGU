@@ -10,7 +10,7 @@
         <ListPreference android:entries="@array/WakeTimes20to23" android:entryValues="@array/WakeTimes20to23Value" android:dialogTitle="@string/WakeTime20to23" android:title="@string/WakeTime20to23" android:summary="@string/PreferenceNoWakeTime" android:key="WakeTime4"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="Alarm">
-        <RingtonePreference android:showDefault="true" android:showSilent="true" android:summary="@string/PreferenceRingtoneDescription" android:title="@string/PreferenceRingtone" android:key="RingtonePreference"/>
+        <CheckBoxPreference android:summary="@string/PreferenceRingtoneDescription" android:title="@string/PreferenceRingtone" android:key="RingtonePreference" android:enabled="true" android:defaultValue="true"/>/>
         <CheckBoxPreference android:summary="@string/PreferenceVibrationDescription" android:title="@string/PreferenceVibration" android:enabled="true" android:key="CheckBoxVibration" android:defaultValue="true"/>
     </PreferenceCategory>
     

@@ -20,7 +20,7 @@
     <string name="PreferenceVibrationDescription">Das Smartphone vibriert zusätzlich zum Alarmton.</string>
     <string name="PreferenceNoVibrationDescription">Das Smartphone vibriert nicht zusätzlich zum Alarmton.</string>
     <string name="PreferenceRingtone">Alarmton</string>
-    <string name="PreferenceRingtoneDescription">Kein Alarmton festgelegt</string>
+    <string name="PreferenceRingtoneDescription">Legen Sie fest, ob zum Alarm ein Benachrichtigungston abgespielt werden soll.</string>
     <string name="PreferenceNoWakeTime">Keine Alarmzeit festgelegt</string>
     <string name="PreferenceUserIDSet">Der eingegebene Probandencode lautet: </string>
     <string name="PreferenceWakeTimeSet">Die App alarmiert um </string>

@@ -36,7 +36,6 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 	private boolean _isWakeTime2Set = false;
 	private boolean _isWakeTime3Set = false;
 	private boolean _isWakeTime4Set = false;
-	private boolean _isRingtoneSet = false;
 	
 	@SuppressWarnings("deprecation")
 	@Override
@@ -69,10 +68,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 			this.findPreference("WakeTime4").setSummary(changedWakeTime + " " + preferences.getString("WakeTime4", "") + ":00 Uhr");
 			_wasblank = false;
 			
-			//Ringtone
-			this.findPreference("RingtonePreference").setSummary(preferences.getString("RingtonePreference", ""));
-			
-			_isIDSet = true; _isRingtoneSet = true; _isWakeTime1Set = true; _isWakeTime2Set = true; _isWakeTime3Set = true; _isWakeTime4Set = true; 
+			_isIDSet = true; _isWakeTime1Set = true; _isWakeTime2Set = true; _isWakeTime3Set = true; _isWakeTime4Set = true; 
 		}
 	}
 	
@@ -150,18 +146,6 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 					}
 				});
 		
-		//Ringtone
-		this.findPreference("RingtonePreference").setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-					@Override
-					public boolean onPreferenceChange(Preference preference,
-							Object newValue) {
-						preference.setSummary(newValue.toString());
-						SetDoneIcon(preference);
-						_isRingtoneSet = true;
-						return true;
-					}
-				});
-		
 		//Vibration
 		final String VibrationSummary=this.getString(R.string.PreferenceVibrationDescription);
 		final String NoVibrationSummary=this.getString(R.string.PreferenceNoVibrationDescription);
@@ -199,6 +183,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 	/**
      * {@inheritDoc}
      */
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -233,7 +218,7 @@ public class PreferenceActivity extends SherlockPreferenceActivity  {
 		// We just have one MenuItem in this window, so we can handle everything inside here
 		//
 		// We are checking if all settings are set. If not, we show a toast.
-        if (_isIDSet && _isWakeTime1Set && _isWakeTime2Set && _isWakeTime3Set && _isWakeTime4Set && _isRingtoneSet){
+        if (_isIDSet && _isWakeTime1Set && _isWakeTime2Set && _isWakeTime3Set && _isWakeTime4Set){
         	int nextAlarm = AlarmSetter.nextAlarmHour(this);
     		AlarmSetter as = new AlarmSetter();
     		
