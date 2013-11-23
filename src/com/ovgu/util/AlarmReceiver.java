@@ -75,7 +75,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 				.setContentTitle("ZIM-Alarm")
 				.setContentText("Auswertung der sozialen Kontakte nötig!")
 				.setAutoCancel(true)
-				.setLights(0xffef7c00, 500, 500)
+				.setLights(0xffef7c00, 1000, 500)
 				.setContentIntent(resultPendingIntent);
 
 		if (preferences.getBoolean("CheckBoxVibration", false) == true) {
